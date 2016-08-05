@@ -1,4 +1,4 @@
-<ion-view view-title="Стать дилером">
+<ion-view view-title="Заказ замера потолка">
     <ion-content class="padding">
         <form action="">
             <div class="list">
@@ -9,39 +9,28 @@
                         <input type="text" class="active-input">
                     </label>
                     <label class="item item-input">
-                        <span class="input-label">Фамилия</span>
-                        <input type="text" class="active-input">
+                        <span class="input-label" class="active-input">Фамилия</span>
+                        <input type="text">
                     </label>
                     <label class="item item-input">
-                        <span class="input-label">Телефон*</span>
-                        <input type="tel" class="active-input">
-                    </label>
-                </div>
-                <div class="wrapper-passport card">
-                    <label class="item item-input">
-                        <span class="input-label">Паспорт</span>
-                        <input type="tel" class="active-input">
+                        <span class="input-label" class="active-input">Телефон*</span>
+                        <input type="tel">
                     </label>
                     <label class="item item-input">
-                        <span class="input-label">Прописка</span>
-                        <input type="tel" class="active-input">
+                        <span class="input-label" class="active-input">Адрес</span>
+                        <input type="text">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Желаемый день замера</span>
+                        <input type="tel" ng-click="openDatePicker()" ng-model="inputDate">
                     </label>
                 </div>
                 <div class="wrapper-reg-comment card">
-                    <div class="row test-row">
+                    <div class="row">
                         <div class="col">
                             <textarea name="regComment" row="15" class="order-comment" ng-model="comment" placeholder="Ваш комментарий"></textarea>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <li class="item item-checkbox">
-                        <label class="checkbox">
-                            <input type="checkbox" ng-model="reg.agreement">
-                        </label>
-                        Даю согласие на обработку персональных данных
-                        <br>
-                    </li>
                 </div>
                 <button class="button button-block button-positive" type="submit">Отправить</button>
             </div>

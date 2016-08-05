@@ -6,6 +6,15 @@
     margin-top: 30%;
 }
 
-.active-input{
-	border-bottom: green;
+.active-input:focus{
+	border-bottom: 1px solid green;
 }
+
+/*.item-checkbox {
+    font-size: 11px;
+}
+
+.delear-reg.checkbox input, .checkbox-icon{
+	position: relative;
+	left: 0px !important;
+}*/

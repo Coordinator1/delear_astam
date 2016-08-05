@@ -1,4 +1,4 @@
-<ion-view view-title="Главный экран">
+<ion-view view-title="Авторизация">
     <ion-content class="padding">
         <form ng-submit="">
             <div class="card">
@@ -15,17 +15,18 @@
             </div>
             <div class="wrapper-auth-input">
                 <label class="item item-input">
-                    <span class="input-label active-input">Телефон</span>
-                    <input type="text" placeholder="+7(999)111-22-33">
+                    <span class="input-label ">Телефон</span>
+                    <input type="text" placeholder="+7(999)111-22-33" class="active-input">
                 </label>
             </div>
             <button class="button button-block button-positive" type="submit">Войти</button>
+            <hr>
             <div class="row">
                 <div class="col">
-                    <button class="button button-block button-positive" type="submit">Стать дилером</button>
+                    <button class="button button-block button-royal" ng-click="goToRegisterDealer()">Стать дилером</button>
                 </div>
                 <div class="col">
-                    <button class="button button-block button-balanced" type="submit">Разместить заказ</button>
+                    <button class="button button-block button-balanced" ng-click="goToClientOrder()">Разместить заказ</button>
                 </div>
             </div>
         </form>

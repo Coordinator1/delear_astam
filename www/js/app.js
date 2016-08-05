@@ -34,6 +34,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
     REGREQUEST: '/registration_request',
     PASSRECOVERY: '/password_recovery',
     PERSONALCABINET: '/personal_cabinet',
+    CLIENTORDER: '/client_order',
 
     NEWORDER: '/new_order',
     ORDER: '/order',
@@ -73,7 +74,33 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       'menuContent': {
         cache: false,
         templateUrl: tpl + 'authorization.html',
-        // controller: ""
+        controller: "AuthCtrl"
+      }
+    }
+  })
+
+  .state('app.registration_request', {
+    url: ROUTES.REGREQUEST,
+    cache: false,
+    views: {
+      cache: false,
+      'menuContent': {
+        cache: false,
+        templateUrl: tpl + 'registration_request.html',
+        controller: "AuthCtrl"
+      }
+    }
+  })
+
+  .state('app.client_order', {
+    url: ROUTES.CLIENTORDER,
+    cache: false,
+    views: {
+      cache: false,
+      'menuContent': {
+        cache: false,
+        templateUrl: tpl + 'client_order.html',
+        controller: "AuthCtrl"
       }
     }
   })
