@@ -1,0 +1,11 @@
+.logo-img{
+	margin-top: 10px;
+}
+
+.wrapper-auth-input{
+    margin-top: 30%;
+}
+
+.active-input{
+	border-bottom: green;
+}

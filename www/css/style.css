@@ -1,0 +1,21 @@
+.bar.bar-stable{
+	background-color: #6090e2;
+}
+
+.bar.bar-stable .title {
+    color: #fff;
+}
+
+.bar-stable .button.button-icon {
+    color: #fff;
+}
+
+.wrapping-list .item-content, .wrapping-list .item {
+    overflow: initial;
+    white-space: initial;
+}
+
+.bar-stable .button.button-clear{
+	color: #fff;
+}
+

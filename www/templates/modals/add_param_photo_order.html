@@ -1,0 +1,271 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-stable">
+        <div class="title">Дополнение к заказу</div>
+        <i class="ion-close modal-close" ng-click="closeModalAddParam()"></i>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="wrapper-photo-order">
+            <form name="addParamPhoto">
+                <div class="card">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Фактура:
+                        </div>
+                        <select class="option_select">
+                            <option disabled class="option_size">Выбрать фактуру:</option>
+                            <option></option>
+                        </select>
+                    </label>
+                </div>
+                <!-- End texture -->
+                <div class="card">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Крепление светильника, шт:
+                        </div>
+                        <select>
+                            <option></option>
+                        </select>
+                    </label>
+                </div>
+                <!-- End lamp -->
+                <div class="card">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Профиль:
+                        </div>
+                        <select>
+                            <option></option>
+                        </select>
+                    </label>
+                </div>
+                <!-- End profile -->
+                <div class="card">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Швы:
+                        </div>
+                        <select>
+                            <option></option>
+                        </select>
+                    </label>
+                </div>
+                <!-- End stitches -->
+                <div class="card">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Цвет:
+                        </div>
+                        <select>
+                            <option></option>
+                        </select>
+                    </label>
+                </div>
+                <!-- End color -->
+                <div class="card">
+                    <ion-checkbox class="disabled-box-in-checkbox" ng-model="photoOrder.platform" ng-class="photoOrder.platform ? 'order-color-title' : 'order-color-title-off'">Платформа под светильник:
+                    </ion-checkbox>
+                    <div class="wrapper-platform" ng-show="photoOrder.platform == true">
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Диаметр">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Диаметр">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Диаметр">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End platform for lamp -->
+                <div class="card">
+                    <ion-checkbox class="disabled-box-in-checkbox" ng-model="photoOrder.ring" ng-class="photoOrder.ring ? 'order-color-title' : 'order-color-title-off'">Кольцо протекторное:
+                    </ion-checkbox>
+                    <div class="wrapper-protective-ring" ng-show="photoOrder.ring == true">
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Диаметр">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Диаметр">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Диаметр">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End protective ring -->
+                <div class="card">
+                    <ion-checkbox class="disabled-box-in-checkbox" ng-model="photoOrder.bypassPipe" ng-class="photoOrder.bypassPipe ? 'order-color-title' : 'order-color-title-off'" ng-click="photoOrder.plate = false; photoOrder.conical = false">Обвод трубы:
+                    </ion-checkbox>
+                    <div class="row" ng-show="photoOrder.bypassPipe == true">
+                        <div class="col">
+                            <ion-checkbox class="photo-order-checkbox" ng-model="photoOrder.plate" ng-class="photoOrder.plate ? 'order-color-title' : 'order-color-title-off'" ng-click="photoOrder.conical = false">Пластина:
+                            </ion-checkbox>
+                        </div>
+                        <div class="col">
+                            <ion-checkbox class="photo-order-checkbox" ng-model="photoOrder.conical" ng-class="photoOrder.conical ? 'order-color-title' : 'order-color-title-off'" ng-click="photoOrder.plate = false">Конический:
+                            </ion-checkbox>
+                        </div>
+                    </div>
+                    <div class="wrapper-plate" ng-show="photoOrder.plate == true">
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <span>Диаметр 22</span>
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <span>Диаметр 27</span>
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <span>Диаметр 32</span>
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End wrapper plate -->
+                    <div class="wrapper-conical" ng-show="photoOrder.conical == true">
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <span>Диаметр 16</span>
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <span>Диаметр 22</span>
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <span>Диаметр 27</span>
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <span>Диаметр 32</span>
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End wrapper conical -->
+                </div>
+                <!-- End bypass pipe -->
+                <div class="card">
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" ng-model="photoOrder.delivery">
+                        </label>
+                        Доставка
+                        <br>
+                    </li>
+                </div>
+                <!-- End delivery -->
+                <button type="submit" class="button button-block button-positive" ng-click="closeModalOrder()">Ок</button>
+            </form>
+        </div>
+        <!-- End wrapper photo order -->
+    </ion-content>
+</ion-modal-view>

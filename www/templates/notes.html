@@ -1,0 +1,34 @@
+<ion-view view-title="Заметки">
+    <ion-content>
+        <div class="divBankCard" ng-hide="notes.length > 0">
+            <div class="item item-divider">
+                Здесь вы можите делать нужные Вам заметки
+            </div>
+        </div>
+        <ion-list ng-show="notes.length > 0" can-swipe="listCanSwipe" class="wrapping-list">
+            <ion-item ng-repeat="item in notes" ng-click="openModalEditNote($index,item)">
+                <div class="date">
+                    {{item.inputDate}}
+                </div>
+                <hr style="width: 98%">
+                <div class="note">
+                    {{item.note}}
+                </div>
+                <hr style="width: 98%">
+                <div class="adress">
+                    {{item.adress}}
+                </div>
+                <ion-option-button class="button-assertive icon ion-trash-a" ng-click="notes.splice($index, 1) "></ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <!-- ====== BOTTOM ICON SEARCH ===== -->
+    <div class="fixed-outside-plus">
+        <div class="row">
+            <div class="col">
+                <button class="button button-circle icon ion-plus-round" ng-click="openModalNewNote();"></button>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</ion-view>

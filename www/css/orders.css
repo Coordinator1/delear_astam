@@ -1,0 +1,93 @@
+/* ======= Options for two variant orders =======*/
+.disabled-box-in-checkbox.item-checkbox{
+	padding-left: 10px;
+}
+.disabled-box-in-checkbox.checkbox input, .checkbox-icon{
+	position: absolute;
+	left: -9999px !important;
+}
+
+.modal-close{
+	color: #fff;
+	font-size: 1.3rem;
+	position: absolute;
+	right: 0;
+	margin-top: 6px;
+	margin-right: 15px;
+}
+
+.order-color-title{
+	background-color: #f8f8f8;
+}
+
+.order-color-title-off{
+	background-color: none;
+}
+
+/*=========== Order ===========*/
+.order-comment{
+	width: 100%;
+	resize: none;
+	height: 100px;
+}
+
+/*=========== Photo order ===========*/
+.center-photo{
+	position: absolute;
+	margin-right: auto;
+	margin-left: auto;
+	left: 0;
+	right: 0;
+} 
+
+.button-wrapper{
+	margin-top: 280px;
+}
+
+.photo-btn{
+	font-size: 0.9rem;
+}
+
+/*=========== My orders ===========*/
+.right-chevron{
+	position: absolute;
+	right: 0;
+	margin-top: 24px;
+	font-size: 1.5rem;
+}
+
+.ion-android-radio-button-on{
+	font-size: 1.2rem;
+}
+
+.ionic_datepicker_popup .popup-body .selected_date_full{
+	background-color: #6090e2 !important;
+}
+
+.ionic_datepicker_popup .popup-buttons button{
+	background-color: #6090e2 !important;
+    font-size: 0.9rem !important;
+}
+
+.ionic_datepicker_popup .selected_date{
+	background-color: #6090e2 !important;
+}
+
+.ionic_datepicker_popup .today{
+	border: 1px solid #6090e2 !important;
+}
+
+.ionic_datepicker_popup .popup-body .button-clear {
+    color: #6090e2 !important;
+}
+
+.ionic_datepicker_popup .popup-body .month_select, .ionic_datepicker_popup .popup-body .year_select{
+	border-bottom: 1px solid #6090e2 !important;
+}
+
+.ionic_datepicker_popup .popup-body .month_select:after, .ionic_datepicker_popup .popup-body .year_select:after{
+	color: #6090e2 !important;
+}
+
+/*=========== Details of order ===========*/
+

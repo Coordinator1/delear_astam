@@ -1,0 +1,20 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-stable">
+        <div class="title">Редактирование записи</div>
+        <i class="ion-close modal-close" ng-click="closeModalEditNotes()"></i>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <form ng-submit="EditItem(editItem)">
+            <div class="list">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" ng-model="editItem.note">
+                    </label>
+                </div>
+                <button class="button button-block button-positive" type="submit">
+                    Редактировать заметку
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

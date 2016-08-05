@@ -1,0 +1,129 @@
+<ion-view view-title="Форма заказа">
+    <ion-content class="padding">
+        <div class="card">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label"><strong>Периметр (м)</strong></span>
+                <input type="text" placeholder="Периметр (м)">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label"><strong>Площадь (м²)</strong></span>
+                <input type="text" placeholder="Площадь (м²)">
+            </label>
+        </div>
+        <!-- End contact input -->
+        <div class="card">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Кол-во углов:
+                </div>
+                <select>
+                    <option disabled class="option_size">Выбрать кол-во углов:</option>
+                    <option>4 шт.</option>
+                    <option>5 шт.</option>
+                    <option>6 шт.</option>
+                </select>
+            </label>
+        </div>
+        <!-- End select box -->
+        <div class="list card">
+            <div class="row">
+                <div class="col text-center">
+                    <span>Стороны по часовой стрелке, см:</span>
+                    <hr>
+                </div>
+            </div>
+            <div class="wrapper-side">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">AB=</span>
+                    <input type="text" placeholder="AB=">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">BC=</span>
+                    <input type="text" placeholder="BC=">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">CD=</span>
+                    <input type="text" placeholder="CD=">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">DA=</span>
+                    <input type="text" placeholder="DA=">
+                </label>
+            </div>
+        </div>
+        <button class="button icon-left ion-plus button-block button-positive">Добавить сторону</button>
+        <!-- End side param and add side button -->
+        <div class="list card">
+            <div class="row">
+                <div class="col text-center">
+                    <span>Диагонали по порядку</span>
+                    <hr>
+                </div>
+            </div>
+            <div class="wrapper-diagonal">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">AB=</span>
+                    <input type="text" placeholder="AB=">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">BC=</span>
+                    <input type="text" placeholder="BC=">
+                </label>
+            </div>
+        </div>
+        <button class="button icon-left ion-plus button-block button-positive">Добавить диагональ</button>
+        <!-- End diagonal and add diagonal button-->
+        <div class="card">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Фактура:
+                </div>
+                <select class="option_select">
+                    <option disabled class="option_size">Выбрать фактуру:</option>
+                    <option></option>
+                </select>
+            </label>
+        </div>
+        <!-- End texture -->
+        <div class="card">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Крепление светильника, шт:
+                </div>
+                <select>
+                    <option disabled class="option_size">Выбрать крепление:</option>
+                    <option></option>
+                </select>
+            </label>
+        </div>
+        <!-- End lamp -->
+        <div class="card">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Профиль:
+                </div>
+                <select>
+                    <option disabled class="option_size">Выбрать профиль:</option>
+                    <option></option>
+                </select>
+            </label>
+        </div>
+        <!-- End profile -->
+        <div class="card">
+            <div class="row">
+                <div class="col">
+                    <textarea name="comment" row="15" class="order-comment" ng-model="comment" placeholder="Ваш комментарий"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- End comment -->
+        <div class="row details-btm">
+            <div class="col">
+                <button class="button icon-left ion-plus button-block button-positive" ng-click="openModalOrder()">Дополнить заказ</button>
+            </div>
+            <div class="col">
+                <button class="button button-block button-balanced">Отправить</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
