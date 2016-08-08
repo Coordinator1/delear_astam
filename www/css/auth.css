@@ -10,11 +10,7 @@
 	border-bottom: 1px solid green;
 }
 
-/*.item-checkbox {
-    font-size: 11px;
+.hello:focus{
+	border-bottom: 1px solid green;
+	
 }
-
-.delear-reg.checkbox input, .checkbox-icon{
-	position: relative;
-	left: 0px !important;
-}*/

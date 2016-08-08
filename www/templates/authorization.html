@@ -1,7 +1,7 @@
 <ion-view view-title="Авторизация">
     <ion-content class="padding">
         <form ng-submit="">
-            <div class="card">
+            <div class="wrapper-info-block card">
                 <div class="row">
                     <div class="col col-66">
                         <h5>Войдите под свои аккаунтом</h5>
@@ -13,12 +13,14 @@
                     </div>
                 </div>
             </div>
+            <!-- End wrapper info block -->
             <div class="wrapper-auth-input">
                 <label class="item item-input">
                     <span class="input-label ">Телефон</span>
                     <input type="text" placeholder="+7(999)111-22-33" class="active-input">
                 </label>
             </div>
+            <!-- End wrapper auth input -->
             <button class="button button-block button-positive" type="submit">Войти</button>
             <hr>
             <div class="row">
@@ -30,5 +32,6 @@
                 </div>
             </div>
         </form>
+        <!-- End form -->
     </ion-content>
 </ion-view>

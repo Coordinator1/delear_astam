@@ -1,13 +1,15 @@
 dealer.controller('AuthCtrl', function($scope, ionicDatePicker, $location) {
-    
+    // Location path to registration request
     $scope.goToRegisterDealer = function(){
         $location.path("/app/registration_request");
     }
 
+    // Location path to client order
     $scope.goToClientOrder = function(){
         $location.path("/app/client_order");
     }
 
+    // Date picker callback and options
     var ipObj1 = {
         callback: function(val) { //Mandatory
             console.log('Return value from the datepicker popup is : ' + val, new Date(val));
@@ -34,6 +36,7 @@ dealer.controller('AuthCtrl', function($scope, ionicDatePicker, $location) {
         templateType: 'popup' //Optional
     };
 
+    // Use this function to open date picker
     $scope.openDatePicker = function() {
         ionicDatePicker.openDatePicker(ipObj1);
     };

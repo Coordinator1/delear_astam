@@ -1,4 +1,4 @@
-<ion-view view-title="Заказ замера потолка">
+<ion-view view-title="Заказ на замера потолка">
     <ion-content class="padding">
         <form action="">
             <div class="list">
@@ -10,30 +10,34 @@
                     </label>
                     <label class="item item-input">
                         <span class="input-label" class="active-input">Фамилия</span>
-                        <input type="text">
+                        <input type="text" class="active-input">
                     </label>
                     <label class="item item-input">
                         <span class="input-label" class="active-input">Телефон*</span>
-                        <input type="tel">
+                        <input type="tel" class="active-input">
                     </label>
                     <label class="item item-input">
                         <span class="input-label" class="active-input">Адрес</span>
-                        <input type="text">
+                        <input type="text" class="active-input">
                     </label>
                     <label class="item item-input">
                         <span class="input-label">Желаемый день замера</span>
                         <input type="tel" ng-click="openDatePicker()" ng-model="inputDate">
                     </label>
                 </div>
-                <div class="wrapper-reg-comment card">
-                    <div class="row">
+                <!-- End wrapper contact -->
+                <div class="wrapper-client-comment card">
+                    <div class="hello row">
                         <div class="col">
                             <textarea name="regComment" row="15" class="order-comment" ng-model="comment" placeholder="Ваш комментарий"></textarea>
                         </div>
                     </div>
                 </div>
+                <!-- End wrapper registration comment -->
                 <button class="button button-block button-positive" type="submit">Отправить</button>
             </div>
+            <!-- End list -->
         </form>
+        <!-- End form -->
     </ion-content>
 </ion-view>

@@ -1,58 +1,14 @@
 <ion-view view-title="Главный экран">
     <ion-content class="padding">
-        <ion-item href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item">
+       <ion-item ng-repeat="last in lastOrders" href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item" ng-class="isLast($last)">
             <i class="ion-chevron-right right-chevron"></i>
             <div class="row">
-                <div class="col col-50">№ 12345</div>
-                <div class="col col-50">Дата: 28.03.16 18:01</div>
+                <div class="col col-50" style="font-weight: bold">№ {{last.OrderNumber}}</div>
+                <div class="col col-50">Дата: {{last.OrderDate}}</div>
             </div>
             <div class="row">
-                <div class="col"><i class="ion-record"></i> Выдан</div>
-                <div class="col">Название заказа</div>
-            </div>
-        </ion-item>
-        <ion-item href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item">
-            <i class="ion-chevron-right right-chevron"></i>
-            <div class="row">
-                <div class="col col-50">№ 12345</div>
-                <div class="col col-50">Дата: 28.03.16 18:01</div>
-            </div>
-            <div class="row">
-                <div class="col"><i class="ion-record"></i> Выдан</div>
-                <div class="col">Название заказа</div>
-            </div>
-        </ion-item>
-        <ion-item href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item">
-            <i class="ion-chevron-right right-chevron"></i>
-            <div class="row">
-                <div class="col col-50">№ 12345</div>
-                <div class="col col-50">Дата: 28.03.16 18:01</div>
-            </div>
-            <div class="row">
-                <div class="col"><i class="ion-record"></i> Выдан</div>
-                <div class="col">Название заказа</div>
-            </div>
-        </ion-item>
-        <ion-item href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item">
-            <i class="ion-chevron-right right-chevron"></i>
-            <div class="row">
-                <div class="col col-50">№ 12345</div>
-                <div class="col col-50">Дата: 28.03.16 18:01</div>
-            </div>
-            <div class="row">
-                <div class="col"><i class="ion-record"></i> Выдан</div>
-                <div class="col">Название заказа</div>
-            </div>
-        </ion-item>
-        <ion-item href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item">
-            <i class="ion-chevron-right right-chevron"></i>
-            <div class="row">
-                <div class="col col-50">№ 12345</div>
-                <div class="col col-50">Дата: 28.03.16 18:01</div>
-            </div>
-            <div class="row">
-                <div class="col"><i class="ion-record"></i> Выдан</div>
-                <div class="col">Название заказа</div>
+                <div class="col"><i class="ion-record"></i> {{last.OrderStatus}}</div>
+                <div class="col">{{last.OrderTitle}}</div>
             </div>
         </ion-item>
         <!-- End order item -->

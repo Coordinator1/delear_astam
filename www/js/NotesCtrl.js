@@ -1,6 +1,6 @@
 dealer.controller('NotesCtrl', function($scope, $ionicModal, $ionicPopover, ionicDatePicker) {
 
-    // array list which will contain the items added
+    // Array list which will contain the items added
     $scope.notes = [];
     $scope.newItem = {};
     var date = new Date().getDate();
@@ -10,7 +10,7 @@ dealer.controller('NotesCtrl', function($scope, $ionicModal, $ionicPopover, ioni
     var fullYear = new Date().getFullYear();
     console.log("fullYear", fullYear);
     
-    //init the modal
+    // Open modal add new note
     $ionicModal.fromTemplateUrl('templates/modals/add_new_note.html', {
         scope: $scope,
         animation: 'slide-in-up'
@@ -18,27 +18,27 @@ dealer.controller('NotesCtrl', function($scope, $ionicModal, $ionicPopover, ioni
         $scope.modalAddNotes = modal;
     });
 
-    // function to open the modal
+    // Function to open the modal
     $scope.openModalNewNote = function() {
         $scope.modalAddNotes.show();
 		$scope.newItem = {};
 		$scope.newItem.inputDate = date + "-"+0+month+"-"+fullYear;
     };
 
-    // function to close the modal
+    // Function to close the modal
     $scope.closeModalNotes = function() {
         $scope.modalAddNotes.hide();
     };
 
-    //Cleanup the modal when we're done with it!
+    // Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function() {
         $scope.modalAddNotes.remove();
     });
     
+    // Create edit item object
 	$scope.editItem = {};
 
-    console.log("$scope.notes", $scope.notes);
-    //function to add items to the existing list
+    // Function to add items to the existing list
     $scope.AddItem = function(newItem) {
     	console.log("newItem", newItem);
         $scope.notes.push(newItem);
@@ -46,10 +46,10 @@ dealer.controller('NotesCtrl', function($scope, $ionicModal, $ionicPopover, ioni
         $scope.closeModalNotes();
     };
 
+    // Access to swipe
     $scope.listCanSwipe = true;
 
-    //$scope.data = {};
-
+    // Modal view edit note
     $ionicModal.fromTemplateUrl('templates/modals/edit_note.html', {
         scope: $scope,
         animation: 'slide-in-up'
@@ -57,7 +57,7 @@ dealer.controller('NotesCtrl', function($scope, $ionicModal, $ionicPopover, ioni
         $scope.modalEditNotes = modal;
     });
 
-    // function to open the modal
+    // Function to open the modal
     $scope.openModalEditNote = function(id, item) {
         console.log("id", id);
         $scope.modalEditNotes.show();
@@ -65,11 +65,12 @@ dealer.controller('NotesCtrl', function($scope, $ionicModal, $ionicPopover, ioni
         console.log("item", item);
     };
 
-    // function to close the modal
+    // Function to close the modal
     $scope.closeModalEditNotes = function() {
         $scope.modalEditNotes.hide();
     };
 
+    // Function for edit note
     $scope.EditItem = function(editItem) {
         $scope.notes[editItem.id] = editItem.note;
         console.log("editItem", editItem);
@@ -78,7 +79,7 @@ dealer.controller('NotesCtrl', function($scope, $ionicModal, $ionicPopover, ioni
         
     };
 
-    /*End add and edit note*/
+    // Date picker callback and options
     var ipObj1 = {
         callback: function(val) { //Mandatory
             console.log('Return value from the datepicker popup is : ' + val, new Date(val));
@@ -105,9 +106,9 @@ dealer.controller('NotesCtrl', function($scope, $ionicModal, $ionicPopover, ioni
         templateType: 'popup' //Optional
     };
 
+    // Use this function to open date picker
     $scope.openDatePicker = function() {
         ionicDatePicker.openDatePicker(ipObj1);
     };
-    /*End date picker*/
 
 });

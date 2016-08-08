@@ -1,22 +1,39 @@
 dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $cordovaCamera, $ionicModal) {
-    
-    /* ============== New order  ============== */
-    $scope.goToOrder = function(){
+
+    /*************************************************/
+    //                  New order                    //
+    /*************************************************/
+
+    // Location path to order
+    $scope.goToOrder = function() {
         $location.path("/app/order");
     };
 
-    $scope.goToPhotoOrder = function(){
+    // Location path to photo order
+    $scope.goToPhotoOrder = function() {
         $location.path("/app/photo_order");
     };
 
-    /* ============== My orders  ============== */
+    /*************************************************/
+    //             Drawing up of an order            //
+    /*************************************************/
+
+    $scope.add_fields = function () {
+        document.getElementById('wrapper').innerHTML += '<label class="item item-input item-stacked-label"><span class="input-label"></span><input type="text" placeholder=""></label>\r\n';
+    }
+
+    /*************************************************/
+    //                  My orders                    //
+    /*************************************************/
+
+    // Date picker callback and options
     var ipObj1 = {
         callback: function(val) { //Mandatory
             console.log('Return value from the datepicker popup is : ' + val, new Date(val));
             $scope.date = new Date(val).getDate();
             $scope.month = new Date(val).getMonth();
             $scope.fullYear = new Date(val).getFullYear();
-            $scope.inputDate = $scope.date + "-"+0+$scope.month+"-"+$scope.fullYear;
+            $scope.inputDate = $scope.date + "-" + 0 + $scope.month + "-" + $scope.fullYear;
         },
         disabledDates: [ //Optional
             new Date(2016, 2, 16),
@@ -36,12 +53,57 @@ dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $co
         templateType: 'popup' //Optional
     };
 
+    // Use this function to open date picker
     $scope.openDatePicker = function() {
         ionicDatePicker.openDatePicker(ipObj1);
     };
 
-    /* ============== Photo order  ============== */
-   	$scope.takePicture = function() {
+    // Test data items, 
+    // when be API, change for API date
+    $scope.historyOrders = [{
+        "OrderTitle": "Название заказа",
+        "OrderDate": "28.03.16 18:01",
+        "OrderStatus": "Выдан",
+        "OrderNumber": "12345",
+    }, {
+        "OrderTitle": "Название заказа",
+        "OrderDate": "28.03.16 18:01",
+        "OrderStatus": "Выдан",
+        "OrderNumber": "12345",
+    }, {
+        "OrderTitle": "Название заказа",
+        "OrderDate": "28.03.16 18:01",
+        "OrderStatus": "Выдан",
+        "OrderNumber": "12345",
+    }, {
+        "OrderTitle": "Название заказа",
+        "OrderDate": "28.03.16 18:01",
+        "OrderStatus": "Выдан",
+        "OrderNumber": "12345",
+    }, {
+        "OrderTitle": "Название заказа",
+        "OrderDate": "28.03.16 18:01",
+        "OrderStatus": "Выдан",
+        "OrderNumber": "12345",
+    }, {
+        "OrderTitle": "Название заказа",
+        "OrderDate": "28.03.16 18:01",
+        "OrderStatus": "Выдан",
+        "OrderNumber": "12345",
+    }, {
+        "OrderTitle": "Название заказа",
+        "OrderDate": "28.03.16 18:01",
+        "OrderStatus": "Выдан",
+        "OrderNumber": "12345",
+    }]
+
+    /*************************************************/
+    //                  Photo order                  //
+    /*************************************************/
+
+    // This function is responsible for the ability to take pictures, 
+    // as well as you can make settings module photos
+    $scope.takePicture = function() {
         var options = {
             quality: 100,
             destinationType: Camera.DestinationType.DATA_URL,
@@ -60,7 +122,7 @@ dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $co
         }, function(err) {
             // An error occured. Show a message to the user
         });
-        
+
         // Save photo in gallery
         // $cordovaCamera.getPicture(options).then(function(imageURI) {
         //     var image = document.getElementById('myImage');
@@ -84,11 +146,11 @@ dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $co
     //         window.resolveLocalFileSystemURI(imageURI, function(fileEntry) {
     //             convertImgToBase64(fileEntry.nativeURL);
 
-                /*$scope.user.fotoDriver = fileEntry.nativeURL;
-                $rootScope.userData.fotoDriver = fileEntry.nativeURL;
-                window.localStorage['userData'] = angular.toJson($rootScope.userData);*/
+    /*$scope.user.fotoDriver = fileEntry.nativeURL;
+    $rootScope.userData.fotoDriver = fileEntry.nativeURL;
+    window.localStorage['userData'] = angular.toJson($rootScope.userData);*/
 
-                // $scope.ftLoad = true;
+    // $scope.ftLoad = true;
     //             var image = document.getElementById('myImage');
     //             image.src = fileEntry.nativeURL;
     //         });
@@ -98,7 +160,8 @@ dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $co
     //         $ionicLoading.show({template: 'Errore di caricamento...', duration:500});
     //     })
     // };
-   
+
+    // Modal view add param photo order
     $ionicModal.fromTemplateUrl('templates/modals/add_param_photo_order.html', {
         scope: $scope,
         animation: 'slide-in-up'
@@ -106,16 +169,21 @@ dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $co
         $scope.modalAddParam = modal;
     });
 
+    // Function to open the modal
     $scope.openModalAddParam = function() {
         $scope.modalAddParam.show();
     };
 
+    // Function to close the modal
     $scope.closeModalAddParam = function() {
         $scope.modalAddParam.hide();
     };
-    // End modal
 
-    /* ============== Add param order  ============== */
+    /*************************************************/
+    //              Add param order                  //
+    /*************************************************/
+
+    // Modal view add param order
     $ionicModal.fromTemplateUrl('templates/modals/add_param_order.html', {
         scope: $scope,
         animation: 'slide-in-up'
@@ -123,10 +191,12 @@ dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $co
         $scope.modalOrder = modal;
     });
 
+    // Function to open the modal
     $scope.openModalOrder = function() {
         $scope.modalOrder.show();
     };
 
+    // Function to close the modal
     $scope.closeModalOrder = function() {
         $scope.modalOrder.hide();
     };

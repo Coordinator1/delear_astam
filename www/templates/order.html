@@ -32,26 +32,28 @@
                     <hr>
                 </div>
             </div>
-            <div class="wrapper-side">
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">AB=</span>
-                    <input type="text" placeholder="AB=">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">BC=</span>
-                    <input type="text" placeholder="BC=">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">CD=</span>
-                    <input type="text" placeholder="CD=">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">DA=</span>
-                    <input type="text" placeholder="DA=">
-                </label>
+            <div id="room_fileds">
+                <div class="wrapper-side" id="wrapper">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">AB=</span>
+                        <input type="text" placeholder="AB=">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">BC=</span>
+                        <input type="text" placeholder="BC=">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">CD=</span>
+                        <input type="text" placeholder="CD=">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">DA=</span>
+                        <input type="text" placeholder="DA=">
+                    </label>
+                </div>
             </div>
         </div>
-        <button class="button icon-left ion-plus button-block button-positive">Добавить сторону</button>
+        <button class="button icon-left ion-plus button-block button-positive" id="more_fields" ng-click="add_fields();">Добавить сторону</button>
         <!-- End side param and add side button -->
         <div class="list card">
             <div class="row">

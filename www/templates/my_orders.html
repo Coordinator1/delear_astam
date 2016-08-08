@@ -21,16 +21,6 @@
                 </label>
             </div>
             <div class="col">
-                <!-- <label class="item item-input item-select">
-                    <div class="input-label">
-                        Дата:
-                    </div>
-                    <select>
-                        <option>Выдан</option>
-                        <option>В обработке</option>
-                        <option>Отменен</option>
-                    </select>
-                </label> -->
                 <label class="item item-input">
                     <input type="text" ng-click="openDatePicker()" ng-model="inputDate" placeholder="Фильтр по дате">
                 </label>
@@ -39,37 +29,15 @@
         <!-- End select box -->
         <hr style="width: 98%">
         <!-- End hr -->
-        <ion-item href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item">
+        <ion-item ng-repeat="history in historyOrders" href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item">
             <i class="ion-chevron-right right-chevron"></i>
             <div class="row">
-                <div class="col col-50" style="font-weight: bold">№ 12345</div>
-                <div class="col col-50">Дата: 28.03.16 18:01</div>
+                <div class="col col-50" style="font-weight: bold">№ {{history.OrderNumber}}</div>
+                <div class="col col-50">Дата: {{history.OrderDate}}</div>
             </div>
             <div class="row">
-                <div class="col"><i class="ion-record"></i> Выдан</div>
-                <div class="col">Название заказа</div>
-            </div>
-        </ion-item>
-        <ion-item href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item">
-            <i class="ion-chevron-right right-chevron"></i>
-            <div class="row">
-                <div class="col col-50" style="font-weight: bold">№ 12345</div>
-                <div class="col col-50">Дата: 28.03.16 18:01</div>
-            </div>
-            <div class="row">
-                <div class="col"><i class="ion-record"></i> Выдан</div>
-                <div class="col">Название заказа</div>
-            </div>
-        </ion-item>
-        <ion-item href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item">
-            <i class="ion-chevron-right right-chevron"></i>
-            <div class="row">
-                <div class="col col-50" style="font-weight: bold">№ 12345</div>
-                <div class="col col-50">Дата: 28.03.16 18:01</div>
-            </div>
-            <div class="row">
-                <div class="col"><i class="ion-record"></i> Выдан</div>
-                <div class="col">Название заказа</div>
+                <div class="col"><i class="ion-record"></i> {{history.OrderStatus}}</div>
+                <div class="col">{{history.OrderTitle}}</div>
             </div>
         </ion-item>
         <!-- End order item -->
