@@ -1,131 +1,131 @@
 <ion-view view-title="Форма заказа">
     <ion-content class="padding">
-        <div class="card">
-            <label class="item item-input item-stacked-label">
-                <span class="input-label"><strong>Периметр (м)</strong></span>
-                <input type="text" placeholder="Периметр (м)">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label"><strong>Площадь (м²)</strong></span>
-                <input type="text" placeholder="Площадь (м²)">
-            </label>
-        </div>
-        <!-- End contact input -->
-        <div class="card">
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    Кол-во углов:
-                </div>
-                <select>
-                    <option disabled class="option_size">Выбрать кол-во углов:</option>
-                    <option>4 шт.</option>
-                    <option>5 шт.</option>
-                    <option>6 шт.</option>
-                </select>
-            </label>
-        </div>
-        <!-- End select box -->
-        <div class="list card">
-            <div class="row">
-                <div class="col text-center">
-                    <span>Стороны по часовой стрелке, см:</span>
-                    <hr>
-                </div>
+        <form name="order">
+            <div class="card">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><strong>Периметр (м)</strong></span>
+                    <input type="text" placeholder="Периметр (м)" ng-model="order.perimeter">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"><strong>Площадь (м²)</strong></span>
+                    <input type="text" placeholder="Площадь (м²)" ng-model="order.square">
+                </label>
             </div>
-            <div id="room_fileds">
-                <div class="wrapper-side" id="wrapper">
+            <!-- End contact input -->
+            <div class="card">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Кол-во углов:
+                    </div>
+                    <select ng-model="order.corners">
+                        <option disabled class="option_size">Выбрать кол-во углов:</option>
+                        <option>4 шт.</option>
+                        <option>5 шт.</option>
+                        <option>6 шт.</option>
+                    </select>
+                </label>
+            </div>
+            <!-- End select box -->
+            <div class="list card">
+                <div class="row">
+                    <div class="col text-center">
+                        <span>Стороны по часовой стрелке, см:</span>
+                        <hr>
+                    </div>
+                </div>
+                <div class="wrapper-side">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">AB=</span>
-                        <input type="text" placeholder="AB=">
+                        <input type="text" placeholder="AB=" ng-model="order.sideAB">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">BC=</span>
-                        <input type="text" placeholder="BC=">
+                        <input type="text" placeholder="BC=" ng-model="order.sideBC">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">CD=</span>
-                        <input type="text" placeholder="CD=">
+                        <input type="text" placeholder="CD=" ng-model="order.sideCD">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">DA=</span>
-                        <input type="text" placeholder="DA=">
+                        <input type="text" placeholder="DA=" ng-model="order.sideDA">
                     </label>
                 </div>
             </div>
-        </div>
-        <button class="button icon-left ion-plus button-block button-positive" id="more_fields" ng-click="add_fields();">Добавить сторону</button>
-        <!-- End side param and add side button -->
-        <div class="list card">
-            <div class="row">
-                <div class="col text-center">
-                    <span>Диагонали по порядку</span>
-                    <hr>
+            <button class="button icon-left ion-plus button-block button-positive" ng-click="openModalAddSide()">Добавить сторону</button>
+            <!-- End side param and add side button -->
+            <div class="list card">
+                <div class="row">
+                    <div class="col text-center">
+                        <span>Диагонали по порядку</span>
+                        <hr>
+                    </div>
+                </div>
+                <div class="wrapper-diagonal">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">AC=</span>
+                        <input type="text" placeholder="AC=" ng-model="order.diagonalAC">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">BD=</span>
+                        <input type="text" placeholder="BD=" ng-model="order.diagonalBD">
+                    </label>
                 </div>
             </div>
-            <div class="wrapper-diagonal">
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">AB=</span>
-                    <input type="text" placeholder="AB=">
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">BC=</span>
-                    <input type="text" placeholder="BC=">
+            <button class="button icon-left ion-plus button-block button-positive" ng-click="openModalAddDiagonal()">Добавить диагональ</button>
+            <!-- End diagonal and add diagonal button-->
+            <div class="card">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Фактура:
+                    </div>
+                    <select class="option_select" ng-model="order.texture">
+                        <option disabled class="option_size">Выбрать фактуру:</option>
+                        <option></option>
+                    </select>
                 </label>
             </div>
-        </div>
-        <button class="button icon-left ion-plus button-block button-positive">Добавить диагональ</button>
-        <!-- End diagonal and add diagonal button-->
-        <div class="card">
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    Фактура:
+            <!-- End texture -->
+            <div class="card">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Крепление светильника, шт:
+                    </div>
+                    <select ng-model="order.lamp">
+                        <option disabled class="option_size">Выбрать крепление:</option>
+                        <option></option>
+                    </select>
+                </label>
+            </div>
+            <!-- End lamp -->
+            <div class="card">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Профиль:
+                    </div>
+                    <select ng-model="order.profile">
+                        <option disabled class="option_size">Выбрать профиль:</option>
+                        <option></option>
+                    </select>
+                </label>
+            </div>
+            <!-- End profile -->
+            <div class="card">
+                <div class="row">
+                    <div class="col">
+                        <textarea row="15" class="order-comment" ng-model="order.comment" placeholder="Ваш комментарий"></textarea>
+                    </div>
                 </div>
-                <select class="option_select">
-                    <option disabled class="option_size">Выбрать фактуру:</option>
-                    <option></option>
-                </select>
-            </label>
-        </div>
-        <!-- End texture -->
-        <div class="card">
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    Крепление светильника, шт:
-                </div>
-                <select>
-                    <option disabled class="option_size">Выбрать крепление:</option>
-                    <option></option>
-                </select>
-            </label>
-        </div>
-        <!-- End lamp -->
-        <div class="card">
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    Профиль:
-                </div>
-                <select>
-                    <option disabled class="option_size">Выбрать профиль:</option>
-                    <option></option>
-                </select>
-            </label>
-        </div>
-        <!-- End profile -->
-        <div class="card">
-            <div class="row">
+            </div>
+            <!-- End comment -->
+            <div class="row details-btm">
                 <div class="col">
-                    <textarea name="comment" row="15" class="order-comment" ng-model="comment" placeholder="Ваш комментарий"></textarea>
+                    <button class="button icon-left ion-plus button-block button-positive" ng-click="openModalOrder()">Дополнить заказ</button>
+                </div>
+                <div class="col">
+                    <button class="button button-block button-balanced">Отправить</button>
                 </div>
             </div>
-        </div>
-        <!-- End comment -->
-        <div class="row details-btm">
-            <div class="col">
-                <button class="button icon-left ion-plus button-block button-positive" ng-click="openModalOrder()">Дополнить заказ</button>
-            </div>
-            <div class="col">
-                <button class="button button-block button-balanced">Отправить</button>
-            </div>
-        </div>
+        </form>
     </ion-content>
 </ion-view>

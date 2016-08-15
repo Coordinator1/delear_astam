@@ -1,13 +1,13 @@
 <ion-view view-title="Details of Orders">
     <ion-content class="padding">
-        <div class="card">
+        <div class="card" ng-repeat="history in historyOrders">
             <div class="row">
-                <div class="col col-30">№ 12345</div>
-                <div class="col text-center">Дата: 28.03.16 18:01</div>
+                <div class="col col-30">№ {{history.OrderNumber}}</div>
+                <div class="col text-center">Дата: {{history.OrderDate}}</div>
             </div>
             <div class="row">
                 <div class="col col-50">
-                    <i class="ion-record"></i> Выдан
+                    <i class="ion-record"></i> {{history.OrderStatus}}
                     <br>
                     <span>Полотоно: Китайский глянец</span>
                     <br>

@@ -1,4 +1,4 @@
-dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $cordovaCamera, $ionicModal) {
+dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $cordovaCamera, $ionicModal, $http) {
 
     /*************************************************/
     //                  New order                    //
@@ -15,12 +15,58 @@ dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $co
     };
 
     /*************************************************/
-    //             Drawing up of an order            //
+    //                    Order                      //
     /*************************************************/
 
-    $scope.add_fields = function () {
-        document.getElementById('wrapper').innerHTML += '<label class="item item-input item-stacked-label"><span class="input-label"></span><input type="text" placeholder=""></label>\r\n';
-    }
+    /* // Function add fields to press button
+     $scope.add_fields = function () {
+         document.getElementById('wrapper').innerHTML += '<label class="item item-input item-stacked-label"><span class="input-label"></span><input type="text" placeholder=""></label>\r\n';
+     }*/
+
+    // Modal view add side
+    $ionicModal.fromTemplateUrl('templates/modals/add_side.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modalAddSide = modal;
+    });
+
+    // Function to open the modal
+    $scope.openModalAddSide = function() {
+        $scope.modalAddSide.show();
+    };
+
+    // Function to close the modal
+    $scope.closeModalAddSide = function() {
+        $scope.modalAddSide.hide();
+    };
+
+    // Modal view add diagonal
+    $ionicModal.fromTemplateUrl('templates/modals/add_diagonal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modalAddDiagonal = modal;
+    });
+
+    // Function to open the modal
+    $scope.openModalAddDiagonal = function() {
+        $scope.modalAddDiagonal.show();
+    };
+
+    // Function to close the modal
+    $scope.closeModalAddDiagonal = function() {
+        $scope.modalAddDiagonal.hide();
+    };
+
+    // Function to send an order to the server
+    $scope.sendOrder = function() {
+        $http.post("API", {
+            submits: true, title: "АстаМ", mail: $scope.order
+        }).success(function(data) {
+
+        }).error(function(data) {});
+    };
 
     /*************************************************/
     //                  My orders                    //
@@ -177,6 +223,15 @@ dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $co
     // Function to close the modal
     $scope.closeModalAddParam = function() {
         $scope.modalAddParam.hide();
+    };
+
+    // Function to send an photo order to the server
+    $scope.sendPhotoOrder = function() {
+        $http.post("API", {
+            submits: true, title: "АстаМ", mail: $scope.photoOrder
+        }).success(function(data) {
+
+        }).error(function(data) {});
     };
 
     /*************************************************/

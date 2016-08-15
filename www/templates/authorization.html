@@ -15,20 +15,21 @@
             </div>
             <!-- End wrapper info block -->
             <div class="wrapper-auth-input">
-                <label class="item item-input">
+                <!-- <label class="item item-input">
                     <span class="input-label ">Телефон</span>
-                    <input type="text" placeholder="+7(999)111-22-33" class="active-input">
-                </label>
+                    <ion-md-input type="text"  class="active-input"></ion-md-input>
+                </label> -->
+                <ion-md-input type="tel" label="Номер телефон" placeholder="+7(999)111-22-33" maxlength="12"></ion-md-input>
             </div>
             <!-- End wrapper auth input -->
             <button class="button button-block button-positive" type="submit">Войти</button>
-            <hr>
+            <!-- <hr> -->
             <div class="row">
                 <div class="col">
-                    <button class="button button-block button-royal" ng-click="goToRegisterDealer()">Стать дилером</button>
+                    <button class="button button-outline button-block button-royal" ng-click="goToRegisterDealer()">Стать дилером</button>
                 </div>
                 <div class="col">
-                    <button class="button button-block button-balanced" ng-click="goToClientOrder()">Разместить заказ</button>
+                    <button class="button button-outline button-block button-balanced" ng-click="goToClientOrder()">Заказать потолок</button>
                 </div>
             </div>
         </form>

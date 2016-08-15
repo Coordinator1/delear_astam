@@ -72,6 +72,11 @@ dealer.controller('TabsCtrl', function($scope, $stateParams, $location) {
         "actionTitle":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta labore, molestiae. Ullam quos, maiores quae nesciunt veritatis quibusdam enim eius iure nostrum nihil veniam perferendis unde consequuntur natus, explicabo asperiores."
     }];
 
+    $scope.actionDetails = [{
+        "actionName":"Акция на натяжные потолки с фотопечатью",
+        "actionContent":"Натяжные потолки с фотопечатью от нашей компании помогут украсить дом или офис, создать неповторимую атмосферу и настроение! И сегодня вы можете приобрести эксклюзивный потолок по акционной цене — всего от 650 руб./м². Акция распространяется на печать на глянцевых полотнах тех изображений, которые вы видите ниже."
+    }];
+
     /*************************************************/
     //                  Catalogs                     //
     /*************************************************/

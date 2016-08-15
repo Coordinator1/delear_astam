@@ -1,4 +1,4 @@
-<ion-modal-view>
+ы<ion-modal-view>
     <ion-header-bar class="bar-stable">
         <div class="title">Дополнение к заказу</div>
         <i class="ion-close modal-close" ng-click="closeModalAddParam()"></i>
@@ -11,7 +11,7 @@
                         <div class="input-label">
                             Фактура:
                         </div>
-                        <select class="option_select">
+                        <select class="option_select" ng-model="photoOrder.texture">
                             <option disabled class="option_size">Выбрать фактуру:</option>
                             <option></option>
                         </select>
@@ -23,7 +23,7 @@
                         <div class="input-label">
                             Крепление светильника, шт:
                         </div>
-                        <select>
+                        <select ng-model="photoOrde.lamp">
                             <option></option>
                         </select>
                     </label>
@@ -34,7 +34,7 @@
                         <div class="input-label">
                             Профиль:
                         </div>
-                        <select>
+                        <select ng-model="photoOrde.profile">
                             <option></option>
                         </select>
                     </label>
@@ -45,7 +45,7 @@
                         <div class="input-label">
                             Швы:
                         </div>
-                        <select>
+                        <select ng-model="photoOrde.stitches">
                             <option></option>
                         </select>
                     </label>
@@ -56,7 +56,7 @@
                         <div class="input-label">
                             Цвет:
                         </div>
-                        <select>
+                        <select ng-model="photoOrde.color">
                             <option></option>
                         </select>
                     </label>
@@ -69,36 +69,36 @@
                         <div class="row">
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
+                                    <input type="text" placeholder="Диаметр" ng-model="photoOrder.diameterPlatform1">
                                 </label>
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
-                                </label>
-                            </div>
-                            <div class="col">
-                                <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberPlatform1">
                                 </label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
+                                    <input type="text" placeholder="Диаметр" ng-model="photoOrder.diameterPlatform2">
                                 </label>
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberPlatform2">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Диаметр" ng-model="photoOrder.diameterPlatform3">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberPlatform3">
                                 </label>
                             </div>
                         </div>
@@ -112,36 +112,36 @@
                         <div class="row">
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
+                                    <input type="text" placeholder="Диаметр" ng-model="photoOrder.diameterRing1">
                                 </label>
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
-                                </label>
-                            </div>
-                            <div class="col">
-                                <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberRing1">
                                 </label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
+                                    <input type="text" placeholder="Диаметр" ng-model="photoOrder.diameterRing2">
                                 </label>
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberRing2">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Диаметр" ng-model="photoOrder.diameterRing3">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberRing3">
                                 </label>
                             </div>
                         </div>
@@ -170,7 +170,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberPlate1">
                                 </label>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberPlate2">
                                 </label>
                             </div>
                         </div>
@@ -194,7 +194,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberPlate3">
                                 </label>
                             </div>
                         </div>
@@ -209,7 +209,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberConitial1">
                                 </label>
                             </div>
                         </div>
@@ -221,7 +221,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberConitial2">
                                 </label>
                             </div>
                         </div>
@@ -233,7 +233,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberConitial3">
                                 </label>
                             </div>
                         </div>
@@ -245,7 +245,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="photoOrder.numberConitial4">
                                 </label>
                             </div>
                         </div>

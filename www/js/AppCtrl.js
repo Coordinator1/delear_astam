@@ -37,6 +37,4 @@ dealer.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
             $scope.closeLogin();
         }, 1000);
     };
-
-
 })

@@ -111,4 +111,21 @@ dealer.controller('NotesCtrl', function($scope, $ionicModal, $ionicPopover, ioni
         ionicDatePicker.openDatePicker(ipObj1);
     };
 
+    // Function to send notes to the server
+    $scope.sendNotes = function() {
+        $http.post("API", {
+            submits: true, title: "АстаМ", mail: $scope.newItem
+        }).success(function(data) {
+
+        }).error(function(data) {});
+    };
+
+    // Function to send edit notes to the server
+    $scope.sendNotes = function() {
+        $http.post("API", {
+            submits: true, title: "АстаМ", mail: $scope.editItem
+        }).success(function(data) {
+
+        }).error(function(data) {});
+    };
 });

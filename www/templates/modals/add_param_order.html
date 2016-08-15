@@ -4,14 +4,14 @@
         <i class="ion-close modal-close" ng-click="closeModalOrder()"></i>
     </ion-header-bar>
     <ion-content class="padding">
-        <form>
+        <form name="addParamOrder">
             <div class="wrapper-order">
                 <div class="card">
                     <label class="item item-input item-select">
                         <div class="input-label">
                             Швы:
                         </div>
-                        <select>
+                        <select ng-model="order.stitches">
                             <option></option>
                         </select>
                     </label>
@@ -22,49 +22,49 @@
                         <div class="input-label">
                             Цвет:
                         </div>
-                        <select>
+                        <selectn ng-model="order.color">
                             <option></option>
                         </select>
                     </label>
                 </div>
                 <!-- End color -->
                 <div class="card">
-                    <ion-checkbox class="disabled-box-in-checkbox" ng-model="order.platform" ng-class="order.platform ? 'order-title' : 'order-title-off'">Платформа под светильник:
+                    <ion-checkbox class="disabled-box-in-checkbox" ng-model="order.platform" ng-class="order.platform ? 'order-color-title' : 'order-color-title-off'">Платформа под светильник:
                     </ion-checkbox>
                     <div class="wrapper-platform" ng-show="order.platform == true">
                         <div class="row">
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
+                                    <input type="text" placeholder="Диаметр" ng-model="order.diameterPlatform1">
                                 </label>
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
-                                </label>
-                            </div>
-                            <div class="col">
-                                <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberPlatform1">
                                 </label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
+                                    <input type="text" placeholder="Диаметр" ng-model="order.diameterPlatform2">
                                 </label>
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberPlatform2">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Диаметр" ng-model="order.diameterPlatform3">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberPlatform3">
                                 </label>
                             </div>
                         </div>
@@ -72,42 +72,42 @@
                 </div>
                 <!-- End platform for lamp -->
                 <div class="card">
-                    <ion-checkbox class="disabled-box-in-checkbox" ng-model="order.ring" ng-class="order.ring ? 'order-title' : 'order-title-off'">Кольцо протекторное:
+                    <ion-checkbox class="disabled-box-in-checkbox" ng-model="order.ring" ng-class="order.ring ? 'order-color-title' : 'order-color-title-off'">Кольцо протекторное:
                     </ion-checkbox>
                     <div class="wrapper-protective-ring" ng-show="order.ring == true">
                         <div class="row">
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
+                                    <input type="text" placeholder="Диаметр" ng-model="order.diameterRing1">
                                 </label>
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
-                                </label>
-                            </div>
-                            <div class="col">
-                                <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberRing1">
                                 </label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Диаметр">
+                                    <input type="text" placeholder="Диаметр" ng-model="order.diameterRing2">
                                 </label>
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberRing2">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Диаметр" ng-model="order.diameterRing3">
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberRing3">
                                 </label>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                 </div>
                 <!-- End protective ring -->
                 <div class="card">
-                    <ion-checkbox class="disabled-box-in-checkbox" ng-model="order.bypassPipe" ng-class="order.bypassPipe ? 'order-title' : 'order-title-off'" ng-click="order.plate = false; order.conical = false">Обвод трубы:
+                    <ion-checkbox class="disabled-box-in-checkbox" ng-model="order.bypassPipe" ng-class="order.bypassPipe ? 'order-color-title' : 'order-color-title-off'" ng-click="order.plate = false; order.conical = false">Обвод трубы:
                     </ion-checkbox>
                     <div class="row" ng-show="order.bypassPipe == true">
                         <div class="col">
@@ -136,7 +136,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberPlate1">
                                 </label>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberPlate2">
                                 </label>
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberPlate3">
                                 </label>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberConical1">
                                 </label>
                             </div>
                         </div>
@@ -187,7 +187,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberConical2">
                                 </label>
                             </div>
                         </div>
@@ -199,7 +199,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberConical3">
                                 </label>
                             </div>
                         </div>
@@ -211,7 +211,7 @@
                             </div>
                             <div class="col">
                                 <label class="item item-input">
-                                    <input type="text" placeholder="Кол-во">
+                                    <input type="text" placeholder="Кол-во" ng-model="order.numberConical4">
                                 </label>
                             </div>
                         </div>

@@ -25,6 +25,8 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
 
 .constant('ROUTES', (function(){
   return {
+    API: "API",
+
     MAIN: '/app',
 
     TABS: '/tabs',
@@ -178,7 +180,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       'menuContent': {
         cache: false,
         templateUrl: tpl+'action_details.html',
-        controller: "NotesCtrl"
+        controller: "TabsCtrl"
       }
     }
   })
