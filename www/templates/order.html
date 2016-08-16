@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="wrapper-side">
-                    <label class="item item-input item-stacked-label">
+                    <!-- <label class="item item-input item-stacked-label">
                         <span class="input-label">AB=</span>
                         <input type="text" placeholder="AB=" ng-model="order.sideAB">
                     </label>
@@ -49,7 +49,27 @@
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">DA=</span>
                         <input type="text" placeholder="DA=" ng-model="order.sideDA">
-                    </label>
+                    </label> -->
+                    <div class="row">
+                        <div class="col">
+                            <ion-md-input type="tel" label="AB=" ng-model="order.sideAB"></ion-md-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <ion-md-input type="tel" label="BC=" ng-model="order.sideBC"></ion-md-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <ion-md-input type="tel" label="CD=" ng-model="order.sideCD"></ion-md-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <ion-md-input type="tel" label="DA=" ng-model="order.sideDA"></ion-md-input>
+                        </div>
+                    </div>
                 </div>
             </div>
             <button class="button icon-left ion-plus button-block button-positive" ng-click="openModalAddSide()">Добавить сторону</button>

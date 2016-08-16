@@ -1,0 +1,22 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-stable">
+        <div class="title">Добавление диагонали</div>
+        <i class="ion-close modal-close" ng-click="closeModalDiagonal()"></i>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <form ng-submit="AddItem(newItem)">
+            <div class="list">
+                <div class="wrapper-reg-comment card">
+                    <div class="row test-row">
+                        <div class="col">
+                            <textarea name="regComment" row="15" class="order-comment" ng-model="order.commentDiagonal" placeholder="Диагонали по порядку"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button class="button button-block button-positive" type="submit">
+                    Добавить диагонали
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

@@ -15,6 +15,11 @@
 	
 }
 
+.client-day{
+  color: #6090e2;
+}
+
+/* Material input */
 ion-md-input {
   position: relative;
   margin-top: 45px;

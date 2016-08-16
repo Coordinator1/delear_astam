@@ -4,7 +4,7 @@
             <div class="list">
                 <h4 class="text-center">Контактная информация</h4>
                 <div class="wrapper-contact card">
-                    <label class="item item-input">
+                    <!--   <label class="item item-input">
                         <span class="input-label">Имя*</span>
                         <input type="text" class="active-input">
                     </label>
@@ -23,6 +23,28 @@
                     <label class="item item-input">
                         <span class="input-label">Желаемый день замера</span>
                         <input type="tel" ng-click="openDatePicker()" ng-model="inputDate">
+                    </label> -->
+                    <div class="row">
+                        <div class="col">
+                            <ion-md-input type="tel" label="Имя*"></ion-md-input>
+                        </div>
+                        <div class="col">
+                            <ion-md-input type="tel" label="Фамилия"></ion-md-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <ion-md-input type="tel" label="Телефон*"></ion-md-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <ion-md-input type="tel" label="Адрес"></ion-md-input>
+                        </div>
+                    </div>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label client-day">Желаемый день замера</span>
+                        <input type="tel" ng-click="openDatePicker()" ng-model="inputDate" placeholder="Желаемый день замера">
                     </label>
                 </div>
                 <!-- End wrapper contact -->
