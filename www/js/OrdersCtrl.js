@@ -1,17 +1,17 @@
-dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $cordovaCamera, $ionicModal, $http) {
+dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $state, $cordovaCamera, $ionicModal, $http) {
 
     /*************************************************/
     //                  New order                    //
     /*************************************************/
 
-    // Location path to order
+    // Go to order
     $scope.goToOrder = function() {
-        $location.path("/app/order");
+        $state.go("app.order");
     };
 
-    // Location path to photo order
+    // Go to photo order
     $scope.goToPhotoOrder = function() {
-        $location.path("/app/photo_order");
+        $state.go("app.photo_order");
     };
 
     /*************************************************/
@@ -61,8 +61,8 @@ dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $co
 
     // Function to send an order to the server
     $scope.sendOrder = function() {
-        $http.post("API", {
-            submits: true, title: "АстаМ", mail: $scope.order
+        $http.post("ROUTES.API", {
+            submits: true, title: "АстаМ", order: $scope.order
         }).success(function(data) {
 
         }).error(function(data) {});
@@ -227,8 +227,8 @@ dealer.controller('OrdersCtrl', function($scope, ionicDatePicker, $location, $co
 
     // Function to send an photo order to the server
     $scope.sendPhotoOrder = function() {
-        $http.post("API", {
-            submits: true, title: "АстаМ", mail: $scope.photoOrder
+        $http.post("ROUTES.API", {
+            submits: true, title: "АстаМ", photoOrder: $scope.photoOrder
         }).success(function(data) {
 
         }).error(function(data) {});

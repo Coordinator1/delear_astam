@@ -1,12 +1,12 @@
 <ion-view view-title="Подробности акции">
-    <ion-content>
+    <ion-content has-bouncing="false" ng-init="actionDetails()">
         <div class="wrapper-action-details">
-            <div class="card" ng-repeat="action in actionDetails">
+            <div class="card">
                 <div class="item item-divider">
-                    {{action.actionName}}
+                    {{actionDetails.name}}
                 </div>
                 <div class="item item-text-wrap">
-                    <p>{{action.actionContent}}</p>
+                    <p>{{actionDetails.full_description}}</p>
                 </div>
             </div>
         </div>

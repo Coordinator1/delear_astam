@@ -1,10 +1,10 @@
 <ion-view view-title="Заказ по фото">
-    <ion-content>
+    <ion-content has-bouncing="false">
         <form name="photoOrder">
             <div class="photo-wrapper">
                 <div class="row responsive-md">
                     <div class="col">
-                        <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" class="center-photo">
+                        <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" ng-model="photoOrder.imgURI" class="center-photo">
                     </div>
                 </div>
                 <div class="row responsive-md">
@@ -13,6 +13,7 @@
                     </div>
                 </div>
             </div>
+            <!-- End photo wrapper -->
             <div class="button-wrapper">
                 <div class="row">
                     <div class="col">
@@ -21,13 +22,15 @@
                 </div>
                 <div class="row">
                     <div class="col col-50">
-                        <button class="button icon-left ion-plus button-block button-positive photo-btn" ng-click="openModalAddParam()">Дополнить</button>
+                        <button class="button icon-left ion-plus button-outline button-block button-positive photo-btn" ng-click="openModalAddParam()">Дополнить</button>
                     </div>
                     <div class="col col-50">
-                        <button class="button button-block button-positive photo-btn">Оформить заказ</button>
+                        <button class="button button-outline button-block button-positive photo-btn">Оформить заказ</button>
                     </div>
                 </div>
             </div>
+            <!-- End button wrapper -->
         </form>
+        <!-- End form -->
     </ion-content>
 </ion-view>

@@ -1,14 +1,15 @@
 <ion-view view-title="Главный экран">
     <ion-content>
         <div class="row row-wrap">
-            <div class="col col-50" ng-repeat="catalog in catalogs">
+            <div class="col col-50" ng-repeat="catalog in catalogsTabs">
                 <div class="catalogs">
                     <img ng-src="{{catalog.catalogImg}}" alt="" class="catalogs-img">
-                    <div class="catalogs-name">
-                        {{catalog.catalogTitle}}
+                    <div class="catalogs-name" style="color: #000">
+                        {{catalog.name}}
                     </div>
                 </div>
             </div>
         </div>
+        <!-- End row wrap -->
     </ion-content>
 </ion-view>

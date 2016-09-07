@@ -93,5 +93,26 @@
 	color: #6090e2 !important;
 }
 
-/*=========== Details of order ===========*/
+/*=========== New order ===========*/
 
+.wrapper-new-order{
+	margin-top: 50px;
+}
+
+.new-order-choose{
+	/*border: 1px solid #000;*/
+    height: 120px;
+    padding-top: 30px;
+}
+
+.new-order-choose:active{
+	background-color: #DBDBDB;
+}
+
+.ion-edit, .ion-camera{
+	font-size: 2rem;
+}
+
+.size-name{
+	font-size: 1.2rem;
+}

@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'])
 
-.run(function($ionicPlatform, $rootScope, ROUTES) {
+.run(function($ionicPlatform, $rootScope, ROUTES, $ionicLoading) {
   $rootScope.ROUTES = ROUTES;
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -21,11 +21,19 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       StatusBar.styleDefault();
     }
   });
+
+  $rootScope.showLoading = function() {
+    $ionicLoading.show({
+      template: '<p>Загрузка..</p><ion-spinner icon="spiral"></ion-spinner>',
+      showBackdrop: true,
+      duration: 1500
+    });
+  };
 })
 
 .constant('ROUTES', (function(){
   return {
-    API: "API",
+    API: "http://berkov.com.ua/",
 
     MAIN: '/app',
 
@@ -107,58 +115,6 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
     }
   })
 
-  .state('app.tabs', {
-    url: ROUTES.TABS,
-    cache: false,
-    views: {
-      cache: false,
-      'menuContent': {
-        cache: false,
-        templateUrl: tpl + 'tabs.html',
-        controller: "TabsCtrl"
-      }
-    }
-  })
-
-  .state('app.tabs.actions_tabs', {
-    url: ROUTES.ACTIONSTABS,
-    cache: false,
-    views: {
-      cache: false,
-      'action_tabs': {
-        cache: false,
-        templateUrl: tpl+'actions_tabs.html',
-        controller: "TabsCtrl"
-      }
-    }
-  })
-
-  .state('app.tabs.my_orders_tabs', {
-    url: ROUTES.MYORDERSTABS,
-    cache: false,
-    views: {
-      cache: false,
-      'my_orders_tabs': {
-        cache: false,
-        templateUrl: tpl + 'my_orders_tabs.html',
-        controller: "TabsCtrl"
-      }
-    }
-  })
-
-  .state('app.tabs.catalogs_tabs', {
-    url: ROUTES.CATALOGSTABS,
-    cache: false,
-    views: {
-      cache: false,
-      'catalogs_tabs': {
-        cache: false,
-        templateUrl: tpl + 'catalogs_tabs.html',
-        controller: "TabsCtrl"
-      }
-    }
-  })
-
   .state('app.personal_cabinet', {
     url: ROUTES.PERSONALCABINET,
     cache: false,
@@ -172,15 +128,67 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
     }
   })
 
+  .state('app.tabs', {
+    url: ROUTES.TABS,
+    cache: false,
+    views: {
+      cache: false,
+      'menuContent': {
+        cache: false,
+        templateUrl: tpl + 'tabs.html',
+        // controller: "TabsCtrl"
+      }
+    }
+  })
+
+  .state('app.tabs.my_orders_tabs', {
+    url: ROUTES.MYORDERSTABS,
+    cache: false,
+    views: {
+      cache: false,
+      'my_orders_tabs': {
+        cache: false,
+        templateUrl: tpl + 'my_orders_tabs.html',
+        controller: "MyLastOrdersTabCtrl"
+      }
+    }
+  })
+
+  .state('app.tabs.actions_tabs', {
+    url: ROUTES.ACTIONSTABS,
+    cache: false,
+    views: {
+      cache: false,
+      'action_tabs': {
+        cache: false,
+        templateUrl: tpl+'actions_tabs.html',
+        controller: "ActionsTabCtrl"
+      }
+    }
+  })
+
   .state('app.action_details', {
-    url: ROUTES.ACTIONDETAILS,
+    url: ROUTES.ACTIONDETAILS  + "/:detailsId",
     cache: false,
     views: {
       cache: false,
       'menuContent': {
         cache: false,
         templateUrl: tpl+'action_details.html',
-        controller: "TabsCtrl"
+        controller: "ActionsTabCtrl"
+      }
+    }
+  })
+
+  .state('app.tabs.catalogs_tabs', {
+    url: ROUTES.CATALOGSTABS,
+    cache: false,
+    views: {
+      cache: false,
+      'catalogs_tabs': {
+        cache: false,
+        templateUrl: tpl + 'catalogs_tabs.html',
+        controller: "CatalogsTabCtrl"
       }
     }
   })
@@ -265,6 +273,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/tabs');
 
+  
 
   /* ============ Date picker tabs ============*/
   var datePickerObj = {

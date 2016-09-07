@@ -1,9 +1,9 @@
 <ion-modal-view>
     <ion-header-bar class="bar-stable">
         <div class="title">Добавление стороны</div>
-        <i class="ion-close modal-close" ng-click="closeModalSide()"></i>
+        <i class="ion-close modal-close" ng-click="closeModalAddSide()"></i>
     </ion-header-bar>
-    <ion-content class="padding">
+    <ion-content class="padding" has-bouncing="false">
         <form ng-submit="AddItem(newItem)">
             <div class="list">
                 <div class="wrapper-reg-comment card">
@@ -13,9 +13,11 @@
                         </div>
                     </div>
                 </div>
+                <!-- End wrapper add side comment -->
                 <button class="button button-block button-positive" type="submit">
                     Добавить стороны
                 </button>
+                <!-- End add side button -->
             </div>
         </form>
     </ion-content>

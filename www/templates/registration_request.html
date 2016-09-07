@@ -1,72 +1,57 @@
 <ion-view view-title="Стать дилером">
-    <ion-content class="padding">
+    <ion-content class="padding" has-bouncing="false">
         <form action="">
             <div class="list">
                 <h4 class="text-center">Контактная информация</h4>
                 <div class="wrapper-contact">
-                    <!-- <label class="item item-input">
-                        <span class="input-label">Имя*</span>
-                        <input type="text" class="active-input">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Фамилия</span>
-                        <input type="text" class="active-input">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Телефон*</span>
-                        <input type="tel" class="active-input">
-                    </label> -->
                     <div class="row">
                         <div class="col">
-                            <ion-md-input class="" type="tel" label="Имя*"></ion-md-input>
+                            <ion-md-input class="" type="tel" label="Имя*" ng-model="registationRequest.name"></ion-md-input>
                         </div>
                         <div class="col">
-                            <ion-md-input type="tel" label="Фамилия"></ion-md-input>
+                            <ion-md-input type="tel" label="Фамилия" ng-model="registationRequest.surname"></ion-md-input>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <ion-md-input type="tel" label="Телефон*"></ion-md-input>
+                            <ion-md-input type="tel" label="Телефон*" ng-model="registationRequest.phoneNumber"></ion-md-input>
                         </div>
                     </div>
                 </div>
+                <!-- End wrapper contact -->
                 <div class="wrapper-passport">
-                    <!-- <label class="item item-input">
-                        <span class="input-label">Паспорт</span>
-                        <input type="tel" class="active-input">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Прописка</span>
-                        <input type="tel" class="active-input">
-                    </label> -->
                     <div class="row">
                         <div class="col">
-                            <ion-md-input type="tel" label="Паспорт"></ion-md-input>
+                            <ion-md-input type="tel" label="Паспорт" ng-model="registationRequest.passport"></ion-md-input>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <ion-md-input type="tel" label="Прописка"></ion-md-input>
+                            <ion-md-input type="tel" label="Прописка" ng-model="registationRequest.placeOfRegistration"></ion-md-input>
                         </div>
                     </div>
                 </div>
+                <!-- End wrapper passport -->
                 <div class="wrapper-reg-comment card">
                     <div class="row test-row">
                         <div class="col">
-                            <textarea name="regComment" row="15" class="order-comment" ng-model="comment" placeholder="Ваш комментарий"></textarea>
+                            <textarea name="regComment" row="15" class="order-comment" ng-model="registationRequest.comment" placeholder="Ваш комментарий"></textarea>
                         </div>
                     </div>
                 </div>
+                <!-- End reg comment -->
                 <div class="card">
                     <li class="item item-checkbox">
                         <label class="checkbox">
-                            <input type="checkbox" ng-model="reg.agreement">
+                            <input type="checkbox" ng-model="registationRequest.agreement">
                         </label>
                         Даю согласие на обработку персональных данных
                         <br>
                     </li>
                 </div>
+                <!-- End checkbox agreement -->
                 <button class="button button-block button-positive" type="submit">Отправить</button>
+                <!-- End send button -->
             </div>
         </form>
     </ion-content>

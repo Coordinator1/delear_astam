@@ -7,7 +7,8 @@
 }
 
 .active-input:focus{
-	border-bottom: 1px solid green;
+	border-bottom: 1px solid #6090e2;
+  width: 96%;
 }
 
 .hello:focus{

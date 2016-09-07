@@ -1,57 +1,37 @@
 <ion-view view-title="Заказ на замера потолка">
-    <ion-content class="padding">
+    <ion-content class="padding" has-bouncing="false">
         <form action="">
             <div class="list">
                 <h4 class="text-center">Контактная информация</h4>
                 <div class="wrapper-contact card">
-                    <!--   <label class="item item-input">
-                        <span class="input-label">Имя*</span>
-                        <input type="text" class="active-input">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label" class="active-input">Фамилия</span>
-                        <input type="text" class="active-input">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label" class="active-input">Телефон*</span>
-                        <input type="tel" class="active-input">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label" class="active-input">Адрес</span>
-                        <input type="text" class="active-input">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Желаемый день замера</span>
-                        <input type="tel" ng-click="openDatePicker()" ng-model="inputDate">
-                    </label> -->
                     <div class="row">
                         <div class="col">
-                            <ion-md-input type="tel" label="Имя*"></ion-md-input>
+                            <ion-md-input type="tel" label="Имя*" ng-model="clientOrder.name"></ion-md-input>
                         </div>
                         <div class="col">
-                            <ion-md-input type="tel" label="Фамилия"></ion-md-input>
+                            <ion-md-input type="tel" label="Фамилия" ng-model="clientOrder.surName"></ion-md-input>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <ion-md-input type="tel" label="Телефон*"></ion-md-input>
+                            <ion-md-input type="tel" label="Телефон*" ng-model="clientOrder.phoneNumber"></ion-md-input>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <ion-md-input type="tel" label="Адрес"></ion-md-input>
+                            <ion-md-input type="tel" label="Адрес" ng-model="clientOrder.address"></ion-md-input>
                         </div>
                     </div>
                     <label class="item item-input item-floating-label">
                         <span class="input-label client-day">Желаемый день замера</span>
-                        <input type="tel" ng-click="openDatePicker()" ng-model="inputDate" placeholder="Желаемый день замера">
+                        <input type="tel" ng-click="openDatePicker()" ng-model="clientOrder.inputDate" placeholder="Желаемый день замера">
                     </label>
                 </div>
                 <!-- End wrapper contact -->
                 <div class="wrapper-client-comment card">
                     <div class="hello row">
                         <div class="col">
-                            <textarea name="regComment" row="15" class="order-comment" ng-model="client.comment" placeholder="Ваш комментарий"></textarea>
+                            <textarea name="regComment" row="15" class="order-comment" ng-model="clientOrder.comment" placeholder="Ваш комментарий"></textarea>
                         </div>
                     </div>
                 </div>

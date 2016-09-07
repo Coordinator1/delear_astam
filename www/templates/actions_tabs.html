@@ -1,10 +1,11 @@
 <ion-view view-title="Главный экран">
-    <ion-content class="padding">
-        <div ng-repeat="action in actionTabs" class="action-news" ng-click="goToActionDetails()">
-            <img ng-src="{{action.actionImg}}" alt="" class="action-img">
+    <ion-content class="padding" has-bouncing="false">
+        <div ng-repeat="action in actionsTabs" class="action-news" ng-click="goToActionDetails(action.id)">
+            <!-- <img ng-src="{{action.actionImg}}" alt="" class="action-img"> -->
             <div class="action-news-content">
-                {{action.actionTitle}}
+                {{action.name}}
             </div>
         </div>
+        <!-- End actions news -->
     </ion-content>
 </ion-view>

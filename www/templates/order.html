@@ -1,14 +1,14 @@
 <ion-view view-title="Форма заказа">
-    <ion-content class="padding">
+    <ion-content class="padding" has-bouncing="false">
         <form name="order">
             <div class="card">
                 <label class="item item-input item-stacked-label">
                     <span class="input-label"><strong>Периметр (м)</strong></span>
-                    <input type="text" placeholder="Периметр (м)" ng-model="order.perimeter">
+                    <input type="text" class="active-input" placeholder="Периметр (м)" ng-model="order.perimeter">
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label"><strong>Площадь (м²)</strong></span>
-                    <input type="text" placeholder="Площадь (м²)" ng-model="order.square">
+                    <input type="text" class="active-input" placeholder="Площадь (м²)" ng-model="order.square">
                 </label>
             </div>
             <!-- End contact input -->
@@ -34,23 +34,23 @@
                     </div>
                 </div>
                 <div class="wrapper-side">
-                    <!-- <label class="item item-input item-stacked-label">
+                    <label class="item item-input item-stacked-label">
                         <span class="input-label">AB=</span>
-                        <input type="text" placeholder="AB=" ng-model="order.sideAB">
+                        <input type="text" class="active-input" placeholder="AB=" ng-model="order.sideAB">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">BC=</span>
-                        <input type="text" placeholder="BC=" ng-model="order.sideBC">
+                        <input type="text" class="active-input" placeholder="BC=" ng-model="order.sideBC">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">CD=</span>
-                        <input type="text" placeholder="CD=" ng-model="order.sideCD">
+                        <input type="text" class="active-input" placeholder="CD=" ng-model="order.sideCD">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">DA=</span>
-                        <input type="text" placeholder="DA=" ng-model="order.sideDA">
-                    </label> -->
-                    <div class="row">
+                        <input type="text" class="active-input" placeholder="DA=" ng-model="order.sideDA">
+                    </label>
+                    <!-- <div class="row">
                         <div class="col">
                             <ion-md-input type="tel" label="AB=" ng-model="order.sideAB"></ion-md-input>
                         </div>
@@ -69,7 +69,7 @@
                         <div class="col">
                             <ion-md-input type="tel" label="DA=" ng-model="order.sideDA"></ion-md-input>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <button class="button icon-left ion-plus button-block button-positive" ng-click="openModalAddSide()">Добавить сторону</button>
@@ -84,12 +84,22 @@
                 <div class="wrapper-diagonal">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">AC=</span>
-                        <input type="text" placeholder="AC=" ng-model="order.diagonalAC">
+                        <input type="text" class="active-input" placeholder="AC=" ng-model="order.diagonalAC">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">BD=</span>
-                        <input type="text" placeholder="BD=" ng-model="order.diagonalBD">
+                        <input type="text" class="active-input" placeholder="BD=" ng-model="order.diagonalBD">
                     </label>
+                    <!-- <div class="row">
+                        <div class="col">
+                            <ion-md-input type="tel" label="AB=" ng-model="order.sideAB"></ion-md-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <ion-md-input type="tel" label="BC=" ng-model="order.sideBC"></ion-md-input>
+                        </div>
+                    </div> -->
                 </div>
             </div>
             <button class="button icon-left ion-plus button-block button-positive" ng-click="openModalAddDiagonal()">Добавить диагональ</button>
@@ -140,10 +150,10 @@
             <!-- End comment -->
             <div class="row details-btm">
                 <div class="col">
-                    <button class="button icon-left ion-plus button-block button-positive" ng-click="openModalOrder()">Дополнить заказ</button>
+                    <button class="button icon-left ion-plus button-outline button-block button-positive" ng-click="openModalOrder()">Дополнить заказ</button>
                 </div>
                 <div class="col">
-                    <button class="button button-block button-balanced">Отправить</button>
+                    <button class="button button-outline button-block button-positive">Отправить</button>
                 </div>
             </div>
         </form>

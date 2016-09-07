@@ -1,12 +1,22 @@
 <ion-view view-title="Новый заказ">
-    <ion-content class="padding">
+    <ion-content class="padding" has-bouncing="false">
         <div class="wrapper-new-order">
-            <button class="button button-block button-positive" ng-click="goToOrder()">
-                Оформить заказ в ручную
-            </button>
-            <button class="button button-block button-positive" ng-click="goToPhotoOrder()">
-                Оформить заказ по фото
-            </button>
+            <div class="row">
+                <div class="col text-center new-order-choose card" ng-click="goToOrder()">
+                    <i class="ion-edit"></i>
+                    <br>
+                    <span class="size-name">Оформить заказ в ручную</span>
+                </div>
+            </div>
+            <!-- End go to order -->
+            <div class="row">
+                <div class="col text-center new-order-choose card" ng-click="goToPhotoOrder()">
+                    <i class="ion-camera"></i>
+                    <br>
+                    <span class="size-name">Оформить заказ по фото</span>
+                </div>
+            </div>
+            <!-- End go to photo order -->
         </div>
     </ion-content>
 </ion-view>

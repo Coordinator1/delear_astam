@@ -1,5 +1,5 @@
 <ion-view view-title="Главный экран">
-    <ion-content class="padding">
+    <ion-content class="padding" has-bouncing="false">
        <ion-item ng-repeat="last in lastOrders" href="#{{ROUTES.MAIN}}{{ROUTES.DETAILSOFORDER}}" class="my-orders-tabs-item" ng-class="isLast($last)">
             <i class="ion-chevron-right right-chevron"></i>
             <div class="row">
@@ -21,7 +21,7 @@
     <div class="fixed-outside-plus">
         <div class="row">
             <div class="col">
-                <button class="button button-circle icon ion-plus-round"></button>
+                <button class="button button-circle icon ion-plus-round" ng-click="goToNewOrder()"></button>
             </div>
         </div>
     </div>
