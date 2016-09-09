@@ -29,6 +29,10 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       duration: 1500
     });
   };
+
+  $rootScope.hideLoadingInit = function() {
+    $ionicLoading.hide();
+  };
 })
 
 .constant('ROUTES', (function(){
@@ -44,8 +48,8 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
     REGREQUEST: '/registration_request',
     PASSRECOVERY: '/password_recovery',
     PERSONALCABINET: '/personal_cabinet',
+    
     CLIENTORDER: '/client_order',
-
     NEWORDER: '/new_order',
     ORDER: '/order',
     PHOTOORDER: '/photo_order',
@@ -64,8 +68,13 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
 
 .config(function($stateProvider, $urlRouterProvider, ROUTES, $httpProvider, $ionicConfigProvider, ionicDatePickerProvider) {
   $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+  $httpProvider.defaults.headers.common["Accept"] = "application/json";
+  $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
 
   var tpl = "templates/";
+  var auth = "templates/auth/";
+  var ords = "templates/orders/";
+  var tabs = "templates/tabs/";
 
   $stateProvider
 
@@ -83,7 +92,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl + 'authorization.html',
+        templateUrl: auth +'authorization.html',
         controller: "AuthCtrl"
       }
     }
@@ -96,7 +105,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl + 'registration_request.html',
+        templateUrl: auth +'registration_request.html',
         controller: "AuthCtrl"
       }
     }
@@ -109,21 +118,8 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl + 'client_order.html',
+        templateUrl: ords +'client_order.html',
         controller: "AuthCtrl"
-      }
-    }
-  })
-
-  .state('app.personal_cabinet', {
-    url: ROUTES.PERSONALCABINET,
-    cache: false,
-    views: {
-      cache: false,
-      'menuContent': {
-        cache: false,
-        templateUrl: tpl + 'personal_cabinet.html',
-        //controller: "ActionCtrl"
       }
     }
   })
@@ -135,8 +131,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl + 'tabs.html',
-        // controller: "TabsCtrl"
+        templateUrl: tabs +'tabs.html',
       }
     }
   })
@@ -148,7 +143,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'my_orders_tabs': {
         cache: false,
-        templateUrl: tpl + 'my_orders_tabs.html',
+        templateUrl: tabs +'my_orders_tabs.html',
         controller: "MyLastOrdersTabCtrl"
       }
     }
@@ -161,7 +156,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'action_tabs': {
         cache: false,
-        templateUrl: tpl+'actions_tabs.html',
+        templateUrl: tabs +'actions_tabs.html',
         controller: "ActionsTabCtrl"
       }
     }
@@ -174,7 +169,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl+'action_details.html',
+        templateUrl: tabs +'action_details.html',
         controller: "ActionsTabCtrl"
       }
     }
@@ -187,7 +182,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'catalogs_tabs': {
         cache: false,
-        templateUrl: tpl + 'catalogs_tabs.html',
+        templateUrl: tabs +'catalogs_tabs.html',
         controller: "CatalogsTabCtrl"
       }
     }
@@ -200,7 +195,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl + 'new_order.html',
+        templateUrl: ords +'new_order.html',
         controller: "OrdersCtrl"
       }
     }
@@ -213,7 +208,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl + 'order.html',
+        templateUrl: ords +'order.html',
         controller: "OrdersCtrl"
       }
     }
@@ -226,7 +221,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl + 'photo_order.html',
+        templateUrl: ords +'photo_order.html',
         controller: "OrdersCtrl"
       }
     }
@@ -239,7 +234,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl + 'my_orders.html',
+        templateUrl: ords +'my_orders.html',
         controller: "OrdersCtrl"
       }
     }
@@ -252,8 +247,21 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl + 'details_of_order.html',
+        templateUrl: ords +'details_of_order.html',
         controller: "OrdersCtrl"
+      }
+    }
+  })
+
+  .state('app.personal_cabinet', {
+    url: ROUTES.PERSONALCABINET,
+    cache: false,
+    views: {
+      cache: false,
+      'menuContent': {
+        cache: false,
+        templateUrl: tpl + 'personal_cabinet.html',
+        //controller: "PersonalCabinetCtrl"
       }
     }
   })
@@ -265,7 +273,7 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: tpl+'notes.html',
+        templateUrl: tpl + 'notes.html',
         controller: "NotesCtrl"
       }
     }
@@ -293,5 +301,4 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
       //disableWeekdays: [6]
     };
     ionicDatePickerProvider.configDatePicker(datePickerObj);
-    /*End date picker*/
 });

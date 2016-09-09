@@ -16,28 +16,30 @@ dealer.controller('AuthCtrl', function($scope, $rootScope, ionicDatePicker, $sta
     };
 
     // The initialization function and checks the user information
-    $scope.initial = function() {
-        $scope.showLoading();
+    // $scope.initial = function() {
+    //     $scope.showLoading();
 
-        $timeout(function(){
-            $rootScope.userDataDealer = JSON.parse(localStorage.getItem('userDataDealer')) || {
-                phone: undefined,
-                accessToken: undefined
-            };
-            console.log('$rootScope.userDataDealer', $rootScope.userDataDealer);
-        }, 100);
+    //     $timeout(function(){
+    //         $rootScope.userDataDealer = JSON.parse(localStorage.getItem('userDataDealer')) || {
+    //             phone: undefined,
+    //             accessToken: undefined
+    //         };
+    //         console.log('$rootScope.userDataDealer', $rootScope.userDataDealer);
+    //     }, 100);
 
-        $timeout(function(){
-            $http.get(ROUTES.API + "" + "access-token=" + $rootScope.userDataDealer.accessToken).success(function(data){
-                console.log("data", data);
-            }).error(function(error){
-                console.log("error", error);
-            })}, 1500);
-    };
+    //     $timeout(function(){
+    //         $http.get(ROUTES.API + "" + "access-token=" + $rootScope.userDataDealer.accessToken).success(function(data){
+    //             console.log("data", data);
+    //         }).error(function(error){
+    //             console.log("error", error);
+    //     })}, 1500);
+
+    //         $scope.hideLoadingInit();
+    // };
 
     // Send phone number on server
     $scope.takeSmsCode = function() {
-        $http.get(ROUTES.API + 'auth?' + "login=" + $scope.authorization.phoneNumber).success(function(data) {
+        $http.get(ROUTES.API + auth + 'auth?' + "login=" + $scope.authorization.phoneNumber).success(function(data) {
             console.log("data", data);
             // $scope.showCodeInput = true;
         }).error(function(error) {
@@ -46,23 +48,48 @@ dealer.controller('AuthCtrl', function($scope, $rootScope, ionicDatePicker, $sta
     };
 
     // Send phone number and code on server for authorization
+    // $scope.authorization = {};
+
+    // $scope.sendSmsCode = function() {
+    //     $http.post(ROUTES.API + 'auth', {
+    //         "login": $scope.authorization.phoneNumber,
+    //         "code": $scope.authorization.code
+    //     }).success(function(data) {
+    //         $rootScope.userDataDealer.accessToken = data;
+    //         console.log("userToken", $rootScope.userToken);
+
+    //         localStorage.setItem("userDataDealer", JSON.stringify($rootScope.userDataDealer));
+    //         console.log("$scope.sendCode --- success", data);
+
+    //         $location.path('app/my_orders_tabs');
+    //     }).error(function(error) {
+    //         console.log("error", error);
+    //     });
+    // };
+    // 
+    // 
+    
     $scope.authorization = {};
 
-    $scope.sendSmsCode = function() {
-        $http.post(ROUTES.API + 'auth', {
-            "login": $scope.authorization.phoneNumber,
-            "code": $scope.authorization.code
-        }).success(function(data) {
-            $rootScope.userDataDealer.accessToken = data;
-            console.log("userToken", $rootScope.userToken);
-
-            localStorage.setItem("userDataDealer", JSON.stringify($rootScope.userDataDealer));
-            console.log("$scope.sendCode --- success", data);
-
-            $location.path('app/my_orders_tabs');
-        }).error(function(error) {
-            console.log("error", error);
+    $scope.sendSmsCode = function () {
+    // use $.param jQuery function to serialize data from JSON 
+        var data = $.param({
+            login: $scope.authorization.phoneNumber,
+            code: $scope.authorization.code
         });
+
+        $http.post(ROUTES.API + 'auth', data)
+            .success(function (data, status, headers, config) {
+                $scope.PostDataResponse = data;
+                console.log("$scope.PostDataResponse", $scope.PostDataResponse);
+            })
+            .error(function (data, status, header, config) {
+                $scope.ResponseDetails = "Data: " + data +
+                    "<hr />status: " + status +
+                    "<hr />headers: " + header +
+                    "<hr />config: " + config;
+                    console.log("$scope.ResponseDetails", $scope.ResponseDetails);
+            });
     };
 
     // Use this function to open date picker
@@ -77,7 +104,7 @@ dealer.controller('AuthCtrl', function($scope, $rootScope, ionicDatePicker, $sta
             $scope.date = new Date(val).getDate();
             $scope.month = new Date(val).getMonth();
             $scope.fullYear = new Date(val).getFullYear();
-            $scope.inputDate = $scope.date + "-" + 0 + $scope.month + "-" + $scope.fullYear;
+            $scope.inputDate = $scope.date + "-" + $scope.month + "-" + $scope.fullYear;
         },
         disabledDates: [ //Optional
             new Date(2016, 2, 16),
