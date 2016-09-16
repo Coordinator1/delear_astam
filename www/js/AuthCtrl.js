@@ -70,6 +70,8 @@ dealer.controller('AuthCtrl', function($scope, $rootScope, ionicDatePicker, $sta
     // 
     
     $scope.authorization = {};
+    $scope.authorization.phoneNumber;
+    $scope.authorization.code;
 
     $scope.sendSmsCode = function () {
     // use $.param jQuery function to serialize data from JSON 
@@ -77,19 +79,34 @@ dealer.controller('AuthCtrl', function($scope, $rootScope, ionicDatePicker, $sta
             login: $scope.authorization.phoneNumber,
             code: $scope.authorization.code
         });
-
+        console.log("$scope.authorization", $scope.authorization);
         $http.post(ROUTES.API + 'auth', data)
-            .success(function (data, status, headers, config) {
-                $scope.PostDataResponse = data;
-                console.log("$scope.PostDataResponse", $scope.PostDataResponse);
+            .success(function (data) {
+                $rootScope.userDataDealer.userToken = data;
+                console.log("$scope.PostDataResponse", $rootScope.userDataDealer.userToken);
             })
-            .error(function (data, status, header, config) {
-                $scope.ResponseDetails = "Data: " + data +
-                    "<hr />status: " + status +
-                    "<hr />headers: " + header +
-                    "<hr />config: " + config;
-                    console.log("$scope.ResponseDetails", $scope.ResponseDetails);
+            .error(function (error) {
+                console.log("error", error);
             });
+        
+        // var element1 = document.getElementById("phoneValue").value;
+        // $scope.authorization.phoneNumber = element1;
+
+        // var element2 = document.getElementById("codeValue").value;
+        // $scope.authorization.code = element2;
+
+        // var data = $.param({
+        //         username: $scope.authorization.phoneNumber,
+        //         password: $scope.authorization.code
+        //     });
+        // console.log("$scope.authorization", $scope.authorization);
+        // $http.post(ROUTES.API + '/v1/auth?', data).success(function(data) {
+        //     console.log("Login: function() --- success(function(data)", data);
+        //         $scope.PostDataResponse = data;
+        // }).error(function(error) {
+        //     console.log("Login: function() --- error(function(data)", error);
+        // });
+            
     };
 
     // Use this function to open date picker
@@ -124,18 +141,3 @@ dealer.controller('AuthCtrl', function($scope, $rootScope, ionicDatePicker, $sta
         templateType: 'popup' //Optional
     };
 });
-
-// derective, material style for input
-dealer.directive('ionMdInput', function() {
-    return {
-        restrict: 'E',
-        transclude: true,
-        template: '<input type="text" required>' +
-            '<span class="md-highlight"></span>' +
-            '<span class="md-bar"></span>' +
-            '<label>{{label}}</label>',
-        scope: {
-            'label': '@'
-        }
-    }
-})

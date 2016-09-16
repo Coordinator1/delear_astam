@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'])
+var dealer = angular.module('starter', ['ionic',  'ionic-datepicker', 'ngCordova', 'ionMdInput'])
 
 .run(function($ionicPlatform, $rootScope, ROUTES, $ionicLoading) {
   $rootScope.ROUTES = ROUTES;
@@ -38,7 +38,8 @@ var dealer = angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova'
 .constant('ROUTES', (function(){
   return {
     API: "http://berkov.com.ua/",
-
+    // API: 'http://apisports.site4ever.com',
+    
     MAIN: '/app',
 
     TABS: '/tabs',
