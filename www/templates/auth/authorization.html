@@ -1,4 +1,4 @@
-<ion-view view-title="Авторизация">
+<ion-view view-title="Авторизация" hide-nav-bar="true">
     <ion-content class="padding" has-bouncing="false">
         <form ng-submit="">
             <div class="wrapper-info-block card">
@@ -16,11 +16,11 @@
             <!-- End wrapper info block -->
             <div class="wrapper-auth-input">
                 <ion-md-input type="tel" label="Номер телефон" ng-model="authorization.phoneNumber" placeholder="Номер телефон" maxlength="12"></ion-md-input>
-                <ion-md-input type="tel" label="Код подтверждения" ng-model="authorization.code" placeholder="Код подтверждения" maxlength="4"></ion-md-input>
+                <ion-md-input type="tel" label="Код подтверждения" ng-model="authorization.code" placeholder="Код подтверждения" maxlength="4" ng-show="showCodeInput"></ion-md-input>
             </div>
             <!-- End wrapper auth input -->
-            <!-- <button class="button button-block button-positive" ng-click="takeSmsCode()">Получить код смс</button> -->
-            <button class="button button-block button-positive" ng-click="sendSmsCode()">Авторизироваться</button>
+            <button class="button button-block button-positive" ng-click="takeSmsCode()" ng-hide="hideSmsButton">Получить код</button>
+            <button class="button button-block button-positive" ng-click="sendSmsCode()" ng-show="showAuthButton">Авторизироваться</button>
             <div class="row">
                 <div class="col">
                     <button class="button button-outline button-block button-royal" ng-click="goToRegisterDealer()">Стать дилером</button>

@@ -22,6 +22,14 @@ var dealer = angular.module('starter', ['ionic',  'ionic-datepicker', 'ngCordova
     }
   });
 
+  $rootScope.showLoadingInit = function() {
+    $ionicLoading.show({
+      template: '<p>Инициализация...</p><ion-spinner icon="spiral"></ion-spinner>',
+      showBackdrop: true,
+      duration: 3000
+    });
+  };
+
   $rootScope.showLoading = function() {
     $ionicLoading.show({
       template: '<p>Загрузка..</p><ion-spinner icon="spiral"></ion-spinner>',
@@ -86,6 +94,19 @@ var dealer = angular.module('starter', ['ionic',  'ionic-datepicker', 'ngCordova
     controller: 'AppCtrl'
   })
 
+  .state('app.initial', {
+    url: ROUTES.INIT,
+    cache: false,
+    views: {
+      cache: false,
+      'menuContent': {
+        cache: false,
+        templateUrl: tpl + 'initial.html',
+        controller: "AuthCtrl"
+      }
+    }
+  })
+
   .state('app.authorization', {
     url: ROUTES.AUTH,
     cache: false,
@@ -93,7 +114,7 @@ var dealer = angular.module('starter', ['ionic',  'ionic-datepicker', 'ngCordova
       cache: false,
       'menuContent': {
         cache: false,
-        templateUrl: auth +'authorization.html',
+        templateUrl: auth + 'authorization.html',
         controller: "AuthCtrl"
       }
     }
@@ -280,7 +301,7 @@ var dealer = angular.module('starter', ['ionic',  'ionic-datepicker', 'ngCordova
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/tabs');
+  $urlRouterProvider.otherwise('/app/initial');
 
   
 

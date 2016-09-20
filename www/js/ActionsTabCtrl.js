@@ -1,6 +1,6 @@
 dealer.controller('ActionsTabCtrl', function($scope, $rootScope, $stateParams, $http, $location, $state, ROUTES, CommunicationWithServerService) {
     
-    // Go to action details
+    // Path to action details
     $scope.goToActionDetails = function(detailsId) {
         console.log("$stateParams.detailsId", detailsId);
         $location.path("app/action_details/" + detailsId);

@@ -1,10 +1,5 @@
-dealer.controller('AuthCtrl', function($scope, $rootScope, ionicDatePicker, $state, ROUTES, $http, $timeout) {
+dealer.controller('AuthCtrl', function($scope, $rootScope, ionicDatePicker, $state, ROUTES, $http, $timeout, $location, CommunicationWithServerService) {
     console.log("AuthCtrl");
-
-    $rootScope.userDataDealer = {};
-
-    $rootScope.userTokenStatic = "37b51d194a7513e45b56f6524f2d51f2";
-
     // Location path to registration request
     $scope.goToRegisterDealer = function() {
         $state.go("app.registration_request");
@@ -15,98 +10,54 @@ dealer.controller('AuthCtrl', function($scope, $rootScope, ionicDatePicker, $sta
         $state.go("app.client_order");
     };
 
+    // user data dealer object 
+    $rootScope.userDataDealer = {};
+
+    // authorization object
+    $rootScope.authorization = {};
+
     // The initialization function and checks the user information
-    // $scope.initial = function() {
-    //     $scope.showLoading();
+    $scope.initial = function() {
+        $scope.showLoadingInit();
 
-    //     $timeout(function(){
-    //         $rootScope.userDataDealer = JSON.parse(localStorage.getItem('userDataDealer')) || {
-    //             phone: undefined,
-    //             accessToken: undefined
-    //         };
-    //         console.log('$rootScope.userDataDealer', $rootScope.userDataDealer);
-    //     }, 100);
+        $timeout(function() {
+            $rootScope.userDataDealer = JSON.parse(localStorage.getItem('userDataDealer'));
+            console.log('$rootScope.userDataDealer $timeout(function()', $rootScope.userDataDealer);
+        }, 100);
 
-    //     $timeout(function(){
-    //         $http.get(ROUTES.API + "" + "access-token=" + $rootScope.userDataDealer.accessToken).success(function(data){
-    //             console.log("data", data);
-    //         }).error(function(error){
-    //             console.log("error", error);
-    //     })}, 1500);
-
-    //         $scope.hideLoadingInit();
-    // };
+        $timeout(function() {
+            console.log("$rootScope.userDataDealer $timeout(function()2", $rootScope.userDataDealer);
+            if (!$rootScope.userDataDealer) {
+                $state.go('app.authorization');
+            } else {
+                $state.go('app.tabs.my_orders_tabs');
+            }
+            $scope.hideLoadingInit();
+        }, 1000);
+    };
 
     // Send phone number on server
     $scope.takeSmsCode = function() {
-        $http.get(ROUTES.API + auth + 'auth?' + "login=" + $scope.authorization.phoneNumber).success(function(data) {
-            console.log("data", data);
-            // $scope.showCodeInput = true;
-        }).error(function(error) {
-            console.log("error", error);
-        });
+        CommunicationWithServerService.takeSmsCode().then(function(data) {
+            $rootScope.code = data.data[0].code;
+            console.log("$rootScope.code", $rootScope.code);
+            $scope.showCodeInput = true;
+            $scope.hideSmsButton = true;
+            $scope.showAuthButton = true;
+        }).finally(function(error) {});
     };
 
-    // Send phone number and code on server for authorization
-    // $scope.authorization = {};
+    // Send phone number and code on server, save access token in local storage
+    $scope.sendSmsCode = function() {
+        CommunicationWithServerService.getUserToken().then(function(data) {
+            $rootScope.userDataDealer.userToken = data.data[0].access_token;
+            console.log("$rootScope.userDataDealer.userToken", data);
 
-    // $scope.sendSmsCode = function() {
-    //     $http.post(ROUTES.API + 'auth', {
-    //         "login": $scope.authorization.phoneNumber,
-    //         "code": $scope.authorization.code
-    //     }).success(function(data) {
-    //         $rootScope.userDataDealer.accessToken = data;
-    //         console.log("userToken", $rootScope.userToken);
+            localStorage.setItem("userDataDealer", JSON.stringify($rootScope.userDataDealer));
+            console.log("localStorage.setItem", $rootScope.userDataDealer);
 
-    //         localStorage.setItem("userDataDealer", JSON.stringify($rootScope.userDataDealer));
-    //         console.log("$scope.sendCode --- success", data);
-
-    //         $location.path('app/my_orders_tabs');
-    //     }).error(function(error) {
-    //         console.log("error", error);
-    //     });
-    // };
-    // 
-    // 
-    
-    $scope.authorization = {};
-    $scope.authorization.phoneNumber;
-    $scope.authorization.code;
-
-    $scope.sendSmsCode = function () {
-    // use $.param jQuery function to serialize data from JSON 
-        var data = $.param({
-            login: $scope.authorization.phoneNumber,
-            code: $scope.authorization.code
-        });
-        console.log("$scope.authorization", $scope.authorization);
-        $http.post(ROUTES.API + 'auth', data)
-            .success(function (data) {
-                $rootScope.userDataDealer.userToken = data;
-                console.log("$scope.PostDataResponse", $rootScope.userDataDealer.userToken);
-            })
-            .error(function (error) {
-                console.log("error", error);
-            });
-        
-        // var element1 = document.getElementById("phoneValue").value;
-        // $scope.authorization.phoneNumber = element1;
-
-        // var element2 = document.getElementById("codeValue").value;
-        // $scope.authorization.code = element2;
-
-        // var data = $.param({
-        //         username: $scope.authorization.phoneNumber,
-        //         password: $scope.authorization.code
-        //     });
-        // console.log("$scope.authorization", $scope.authorization);
-        // $http.post(ROUTES.API + '/v1/auth?', data).success(function(data) {
-        //     console.log("Login: function() --- success(function(data)", data);
-        //         $scope.PostDataResponse = data;
-        // }).error(function(error) {
-        //     console.log("Login: function() --- error(function(data)", error);
-        // });
-            
+            $location.path('app/my_orders_tabs');
+        }).finally(function(error) {});
     };
 
     // Use this function to open date picker
